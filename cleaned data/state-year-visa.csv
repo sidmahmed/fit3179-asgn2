@@ -1,0 +1,385 @@
+Visa,State,Year,Number
+Skilled,Australian Capital Territory,2000,763
+Skilled,Australian Capital Territory,2001,883
+Skilled,Australian Capital Territory,2002,812
+Skilled,Australian Capital Territory,2003,1156
+Skilled,Australian Capital Territory,2004,1280
+Skilled,Australian Capital Territory,2005,1289
+Skilled,Australian Capital Territory,2006,1556
+Skilled,Australian Capital Territory,2007,1706
+Skilled,Australian Capital Territory,2008,2297
+Skilled,Australian Capital Territory,2009,2256
+Skilled,Australian Capital Territory,2010,1403
+Skilled,Australian Capital Territory,2011,1694
+Skilled,Australian Capital Territory,2012,1510
+Skilled,Australian Capital Territory,2013,1222
+Skilled,Australian Capital Territory,2014,1245
+Skilled,Australian Capital Territory,2015,920
+Family,Australian Capital Territory,2000,411
+Family,Australian Capital Territory,2001,414
+Family,Australian Capital Territory,2002,457
+Family,Australian Capital Territory,2003,542
+Family,Australian Capital Territory,2004,489
+Family,Australian Capital Territory,2005,613
+Family,Australian Capital Territory,2006,675
+Family,Australian Capital Territory,2007,759
+Family,Australian Capital Territory,2008,828
+Family,Australian Capital Territory,2009,893
+Family,Australian Capital Territory,2010,769
+Family,Australian Capital Territory,2011,812
+Family,Australian Capital Territory,2012,810
+Family,Australian Capital Territory,2013,721
+Family,Australian Capital Territory,2014,718
+Family,Australian Capital Territory,2015,495
+Humanitarian,Australian Capital Territory,2000,100
+Humanitarian,Australian Capital Territory,2001,92
+Humanitarian,Australian Capital Territory,2002,126
+Humanitarian,Australian Capital Territory,2003,142
+Humanitarian,Australian Capital Territory,2004,185
+Humanitarian,Australian Capital Territory,2005,171
+Humanitarian,Australian Capital Territory,2006,200
+Humanitarian,Australian Capital Territory,2007,205
+Humanitarian,Australian Capital Territory,2008,216
+Humanitarian,Australian Capital Territory,2009,189
+Humanitarian,Australian Capital Territory,2010,152
+Humanitarian,Australian Capital Territory,2011,124
+Humanitarian,Australian Capital Territory,2012,80
+Humanitarian,Australian Capital Territory,2013,114
+Humanitarian,Australian Capital Territory,2014,105
+Humanitarian,Australian Capital Territory,2015,96
+Skilled,New South Wales,2000,14784
+Skilled,New South Wales,2001,15053
+Skilled,New South Wales,2002,14542
+Skilled,New South Wales,2003,18215
+Skilled,New South Wales,2004,21355
+Skilled,New South Wales,2005,22734
+Skilled,New South Wales,2006,26098
+Skilled,New South Wales,2007,31651
+Skilled,New South Wales,2008,33292
+Skilled,New South Wales,2009,24878
+Skilled,New South Wales,2010,20503
+Skilled,New South Wales,2011,20184
+Skilled,New South Wales,2012,20274
+Skilled,New South Wales,2013,16609
+Skilled,New South Wales,2014,13941
+Skilled,New South Wales,2015,12530
+Family,New South Wales,2000,12117
+Family,New South Wales,2001,11262
+Family,New South Wales,2002,11091
+Family,New South Wales,2003,12044
+Family,New South Wales,2004,13058
+Family,New South Wales,2005,13968
+Family,New South Wales,2006,15510
+Family,New South Wales,2007,16331
+Family,New South Wales,2008,18209
+Family,New South Wales,2009,17592
+Family,New South Wales,2010,15731
+Family,New South Wales,2011,15470
+Family,New South Wales,2012,15248
+Family,New South Wales,2013,15303
+Family,New South Wales,2014,12986
+Family,New South Wales,2015,10833
+Humanitarian,New South Wales,2000,3857
+Humanitarian,New South Wales,2001,3298
+Humanitarian,New South Wales,2002,2899
+Humanitarian,New South Wales,2003,3396
+Humanitarian,New South Wales,2004,3110
+Humanitarian,New South Wales,2005,3651
+Humanitarian,New South Wales,2006,3432
+Humanitarian,New South Wales,2007,3305
+Humanitarian,New South Wales,2008,3921
+Humanitarian,New South Wales,2009,4596
+Humanitarian,New South Wales,2010,3779
+Humanitarian,New South Wales,2011,4430
+Humanitarian,New South Wales,2012,3593
+Humanitarian,New South Wales,2013,4840
+Humanitarian,New South Wales,2014,4508
+Humanitarian,New South Wales,2015,3013
+Skilled,Northern Territory,2000,155
+Skilled,Northern Territory,2001,164
+Skilled,Northern Territory,2002,169
+Skilled,Northern Territory,2003,232
+Skilled,Northern Territory,2004,280
+Skilled,Northern Territory,2005,479
+Skilled,Northern Territory,2006,827
+Skilled,Northern Territory,2007,1180
+Skilled,Northern Territory,2008,1495
+Skilled,Northern Territory,2009,1393
+Skilled,Northern Territory,2010,1018
+Skilled,Northern Territory,2011,1053
+Skilled,Northern Territory,2012,1066
+Skilled,Northern Territory,2013,827
+Skilled,Northern Territory,2014,671
+Skilled,Northern Territory,2015,665
+Family,Northern Territory,2000,176
+Family,Northern Territory,2001,165
+Family,Northern Territory,2002,167
+Family,Northern Territory,2003,188
+Family,Northern Territory,2004,217
+Family,Northern Territory,2005,215
+Family,Northern Territory,2006,280
+Family,Northern Territory,2007,337
+Family,Northern Territory,2008,405
+Family,Northern Territory,2009,464
+Family,Northern Territory,2010,417
+Family,Northern Territory,2011,483
+Family,Northern Territory,2012,478
+Family,Northern Territory,2013,503
+Family,Northern Territory,2014,420
+Family,Northern Territory,2015,328
+Humanitarian,Northern Territory,2000,23
+Humanitarian,Northern Territory,2001,30
+Humanitarian,Northern Territory,2002,48
+Humanitarian,Northern Territory,2003,40
+Humanitarian,Northern Territory,2004,82
+Humanitarian,Northern Territory,2005,92
+Humanitarian,Northern Territory,2006,70
+Humanitarian,Northern Territory,2007,76
+Humanitarian,Northern Territory,2008,67
+Humanitarian,Northern Territory,2009,66
+Humanitarian,Northern Territory,2010,110
+Humanitarian,Northern Territory,2011,101
+Humanitarian,Northern Territory,2012,35
+Humanitarian,Northern Territory,2013,101
+Humanitarian,Northern Territory,2014,29
+Humanitarian,Northern Territory,2015,22
+Skilled,Queensland,2000,5185
+Skilled,Queensland,2001,6491
+Skilled,Queensland,2002,6715
+Skilled,Queensland,2003,9030
+Skilled,Queensland,2004,9704
+Skilled,Queensland,2005,11992
+Skilled,Queensland,2006,15810
+Skilled,Queensland,2007,19360
+Skilled,Queensland,2008,23685
+Skilled,Queensland,2009,17450
+Skilled,Queensland,2010,11703
+Skilled,Queensland,2011,11647
+Skilled,Queensland,2012,11187
+Skilled,Queensland,2013,7556
+Skilled,Queensland,2014,5591
+Skilled,Queensland,2015,4354
+Family,Queensland,2000,3778
+Family,Queensland,2001,3933
+Family,Queensland,2002,4150
+Family,Queensland,2003,4644
+Family,Queensland,2004,4893
+Family,Queensland,2005,5347
+Family,Queensland,2006,6241
+Family,Queensland,2007,6411
+Family,Queensland,2008,7400
+Family,Queensland,2009,7286
+Family,Queensland,2010,6706
+Family,Queensland,2011,6552
+Family,Queensland,2012,6444
+Family,Queensland,2013,6199
+Family,Queensland,2014,5395
+Family,Queensland,2015,4310
+Humanitarian,Queensland,2000,836
+Humanitarian,Queensland,2001,683
+Humanitarian,Queensland,2002,565
+Humanitarian,Queensland,2003,1021
+Humanitarian,Queensland,2004,1171
+Humanitarian,Queensland,2005,1619
+Humanitarian,Queensland,2006,1550
+Humanitarian,Queensland,2007,1500
+Humanitarian,Queensland,2008,1220
+Humanitarian,Queensland,2009,1941
+Humanitarian,Queensland,2010,1981
+Humanitarian,Queensland,2011,2091
+Humanitarian,Queensland,2012,1486
+Humanitarian,Queensland,2013,2217
+Humanitarian,Queensland,2014,1461
+Humanitarian,Queensland,2015,1221
+Skilled,South Australia,2000,1200
+Skilled,South Australia,2001,1384
+Skilled,South Australia,2002,1583
+Skilled,South Australia,2003,2439
+Skilled,South Australia,2004,2821
+Skilled,South Australia,2005,4798
+Skilled,South Australia,2006,6755
+Skilled,South Australia,2007,7441
+Skilled,South Australia,2008,9072
+Skilled,South Australia,2009,8121
+Skilled,South Australia,2010,5738
+Skilled,South Australia,2011,5113
+Skilled,South Australia,2012,5784
+Skilled,South Australia,2013,4388
+Skilled,South Australia,2014,3712
+Skilled,South Australia,2015,3913
+Family,South Australia,2000,989
+Family,South Australia,2001,1075
+Family,South Australia,2002,1108
+Family,South Australia,2003,1264
+Family,South Australia,2004,1381
+Family,South Australia,2005,1555
+Family,South Australia,2006,1881
+Family,South Australia,2007,1935
+Family,South Australia,2008,2192
+Family,South Australia,2009,2341
+Family,South Australia,2010,2185
+Family,South Australia,2011,2276
+Family,South Australia,2012,2262
+Family,South Australia,2013,2455
+Family,South Australia,2014,2100
+Family,South Australia,2015,1871
+Humanitarian,South Australia,2000,909
+Humanitarian,South Australia,2001,894
+Humanitarian,South Australia,2002,521
+Humanitarian,South Australia,2003,767
+Humanitarian,South Australia,2004,1011
+Humanitarian,South Australia,2005,1186
+Humanitarian,South Australia,2006,1473
+Humanitarian,South Australia,2007,1293
+Humanitarian,South Australia,2008,1013
+Humanitarian,South Australia,2009,1421
+Humanitarian,South Australia,2010,1629
+Humanitarian,South Australia,2011,1722
+Humanitarian,South Australia,2012,1047
+Humanitarian,South Australia,2013,1388
+Humanitarian,South Australia,2014,1074
+Humanitarian,South Australia,2015,858
+Skilled,Tasmania,2000,200
+Skilled,Tasmania,2001,242
+Skilled,Tasmania,2002,220
+Skilled,Tasmania,2003,260
+Skilled,Tasmania,2004,327
+Skilled,Tasmania,2005,429
+Skilled,Tasmania,2006,609
+Skilled,Tasmania,2007,507
+Skilled,Tasmania,2008,801
+Skilled,Tasmania,2009,608
+Skilled,Tasmania,2010,405
+Skilled,Tasmania,2011,472
+Skilled,Tasmania,2012,421
+Skilled,Tasmania,2013,254
+Skilled,Tasmania,2014,175
+Skilled,Tasmania,2015,188
+Family,Tasmania,2000,218
+Family,Tasmania,2001,236
+Family,Tasmania,2002,256
+Family,Tasmania,2003,265
+Family,Tasmania,2004,275
+Family,Tasmania,2005,296
+Family,Tasmania,2006,317
+Family,Tasmania,2007,328
+Family,Tasmania,2008,378
+Family,Tasmania,2009,412
+Family,Tasmania,2010,345
+Family,Tasmania,2011,338
+Family,Tasmania,2012,333
+Family,Tasmania,2013,319
+Family,Tasmania,2014,278
+Family,Tasmania,2015,182
+Humanitarian,Tasmania,2000,36
+Humanitarian,Tasmania,2001,37
+Humanitarian,Tasmania,2002,64
+Humanitarian,Tasmania,2003,96
+Humanitarian,Tasmania,2004,125
+Humanitarian,Tasmania,2005,94
+Humanitarian,Tasmania,2006,102
+Humanitarian,Tasmania,2007,124
+Humanitarian,Tasmania,2008,168
+Humanitarian,Tasmania,2009,205
+Humanitarian,Tasmania,2010,327
+Humanitarian,Tasmania,2011,327
+Humanitarian,Tasmania,2012,241
+Humanitarian,Tasmania,2013,577
+Humanitarian,Tasmania,2014,433
+Humanitarian,Tasmania,2015,246
+Skilled,Victoria,2000,9275
+Skilled,Victoria,2001,10177
+Skilled,Victoria,2002,10963
+Skilled,Victoria,2003,15039
+Skilled,Victoria,2004,17676
+Skilled,Victoria,2005,20308
+Skilled,Victoria,2006,26525
+Skilled,Victoria,2007,31519
+Skilled,Victoria,2008,34454
+Skilled,Victoria,2009,26854
+Skilled,Victoria,2010,19634
+Skilled,Victoria,2011,19335
+Skilled,Victoria,2012,19277
+Skilled,Victoria,2013,16052
+Skilled,Victoria,2014,14078
+Skilled,Victoria,2015,13252
+Family,Victoria,2000,6812
+Family,Victoria,2001,6912
+Family,Victoria,2002,7351
+Family,Victoria,2003,8302
+Family,Victoria,2004,8527
+Family,Victoria,2005,9791
+Family,Victoria,2006,10936
+Family,Victoria,2007,11893
+Family,Victoria,2008,13538
+Family,Victoria,2009,13644
+Family,Victoria,2010,12226
+Family,Victoria,2011,12069
+Family,Victoria,2012,12047
+Family,Victoria,2013,12495
+Family,Victoria,2014,10521
+Family,Victoria,2015,9628
+Humanitarian,Victoria,2000,2897
+Humanitarian,Victoria,2001,2872
+Humanitarian,Victoria,2002,2547
+Humanitarian,Victoria,2003,3237
+Humanitarian,Victoria,2004,3360
+Humanitarian,Victoria,2005,3660
+Humanitarian,Victoria,2006,3998
+Humanitarian,Victoria,2007,3910
+Humanitarian,Victoria,2008,3933
+Humanitarian,Victoria,2009,4706
+Humanitarian,Victoria,2010,4368
+Humanitarian,Victoria,2011,5107
+Humanitarian,Victoria,2012,4041
+Humanitarian,Victoria,2013,4748
+Humanitarian,Victoria,2014,3714
+Humanitarian,Victoria,2015,3086
+Skilled,Western Australia,2000,4353
+Skilled,Western Australia,2001,5373
+Skilled,Western Australia,2002,5564
+Skilled,Western Australia,2003,7936
+Skilled,Western Australia,2004,8981
+Skilled,Western Australia,2005,12237
+Skilled,Western Australia,2006,17265
+Skilled,Western Australia,2007,20289
+Skilled,Western Australia,2008,25843
+Skilled,Western Australia,2009,18351
+Skilled,Western Australia,2010,13691
+Skilled,Western Australia,2011,16794
+Skilled,Western Australia,2012,19125
+Skilled,Western Australia,2013,12659
+Skilled,Western Australia,2014,8395
+Skilled,Western Australia,2015,5529
+Family,Western Australia,2000,2587
+Family,Western Australia,2001,2543
+Family,Western Australia,2002,2844
+Family,Western Australia,2003,3079
+Family,Western Australia,2004,3472
+Family,Western Australia,2005,3639
+Family,Western Australia,2006,4411
+Family,Western Australia,2007,4868
+Family,Western Australia,2008,5416
+Family,Western Australia,2009,5503
+Family,Western Australia,2010,5520
+Family,Western Australia,2011,5400
+Family,Western Australia,2012,5527
+Family,Western Australia,2013,5353
+Family,Western Australia,2014,4339
+Family,Western Australia,2015,3577
+Humanitarian,Western Australia,2000,1172
+Humanitarian,Western Australia,2001,909
+Humanitarian,Western Australia,2002,843
+Humanitarian,Western Australia,2003,1127
+Humanitarian,Western Australia,2004,1495
+Humanitarian,Western Australia,2005,1629
+Humanitarian,Western Australia,2006,1638
+Humanitarian,Western Australia,2007,1567
+Humanitarian,Western Australia,2008,1340
+Humanitarian,Western Australia,2009,1700
+Humanitarian,Western Australia,2010,1408
+Humanitarian,Western Australia,2011,1245
+Humanitarian,Western Australia,2012,1074
+Humanitarian,Western Australia,2013,797
+Humanitarian,Western Australia,2014,631
+Humanitarian,Western Australia,2015,567
