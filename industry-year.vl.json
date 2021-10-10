@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/year-industry.csv"
+  },
+  "mark": {"type": "line", "point": true},
+  "encoding": {
+    "x": {"timeUnit": "year", "field": "Year"},
+    "y": {
+      "field": "Number",
+      "type": "quantitative",
+      "title": "Number of Visas Granted"
+    },
+    "color": {"field": "Industry", "type": "nominal"}
+  },
+  "params": [
+    {
+      "name": "Year",
+      "value": 2019,
+      "bind": {
+        "input": "range",
+        "min": 2007,
+        "max": 2019,
+        "step": 1,
+        "name": "Year"
+      }
+    }
+  ],
+  "transform": [
+    {"filter": {"timeUnit": "year", "field": "Year", "lte": "Year"}}
+  ],
+  "config": {}
+}

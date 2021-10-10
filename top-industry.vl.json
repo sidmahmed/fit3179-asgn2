@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top _ industries by Number of Visas Granted",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/year-industry.csv"
+  },
+  "mark": "bar",
+  "params": [
+    {
+      "name": "k_Industries",
+      "value": 10,
+      "bind": {
+        "input": "range",
+        "min": 3,
+        "max": 10,
+        "step": 1,
+        "name": "Top K Industries"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "aggregate": [{"op": "sum", "field": "Number", "as": "sum_Number"}],
+      "groupby": ["Industry"]
+    },
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{"field": "sum_Number", "order": "descending"}]
+    },
+    {
+      "calculate": "datum.rank < k_Industries+1 ? datum.Industry : 'All Others'",
+      "as": "ranked_Industry"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "aggregate": "sum",
+      "field": "sum_Number",
+      "type": "quantitative",
+      "title": null
+    },
+    "y": {
+      "sort": {"op": "sum", "field": "sum_Number", "order": "descending"},
+      "field": "ranked_Industry",
+      "type": "ordinal",
+      "title": null
+    }
+  },
+  "config": {}
+}
