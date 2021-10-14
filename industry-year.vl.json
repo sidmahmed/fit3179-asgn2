@@ -3,7 +3,7 @@
   "width": "container",
   "height": 400,
   "data": {
-    "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/year-industry.csv"
+    "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/top_industry.csv"
   },
   "mark": {"type": "line", "point": true},
   "encoding": {
