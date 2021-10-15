@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Unemployment rate over time",
+    "width": 600,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/data/unemployment.csv"
+    },
+    "encoding": {
+      "x": {"field": "Date", "type": "temporal", "title": "Date"},
+      "y": {"field": "Rate", "type": "quantitative", "title": "Unemployment rate"},
+      "color": {
+        "condition": {
+          "param": "hover",
+          "field": "Type",
+          "type": "nominal"
+        },
+        "value": "grey"
+      },
+      "opacity": {"condition": {"param": "hover", "value": 1}, "value": 0.2},
+      "tooltip": [
+        {"field": "Type", "type": "nominal", "title": "Type"},
+        {"field": "Rate", "type": "quantitative", "title": "Unemployment Rate"}
+      ]
+    },
+    "layer": [
+      {
+        "description": "transparent layer to make it easier to trigger selection",
+        "params": [
+          {
+            "name": "hover",
+            "value": [{"Type": "Born overseas"}],
+            "select": {"type": "point", "fields": ["Type"], "on": "mouseover"}
+          }
+        ],
+        "mark": {"type": "line", "strokeWidth": 4, "stroke": "transparent"}
+      },
+      {"mark": "line"},
+      {
+        "encoding": {
+          "x": {"field": "Date"},
+          "y": {"aggregate": {"argmax": "date"}, "field": "Rate"}
+        },
+        "layer": [
+          {"mark": {"type": "circle"}},
+          {
+            "mark": {"type": "text", "align": "left", "dx": 4},
+            "encoding": {"text": {"field": "Type", "type": "nominal"}}
+          }
+        ]
+      }
+    ],
+    "config": {"view": {"stroke": null}}
+  }
