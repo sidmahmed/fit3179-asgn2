@@ -3,6 +3,7 @@ var industry_year = "industry-year.vl.json";
 var top_industry = "top-industry.vl.json";
 var occupation_rank_employer = "occupation-rank-employer.vl.json";
 var unemployment = "unemployment.vl.json";
+var map = "map.json";
 
 vegaEmbed("#visa_year", visa_year).then(function(result) {
  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -20,11 +21,13 @@ vegaEmbed("#occupation_rank_employer", occupation_rank_employer).then(function(r
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    vegaEmbed("#unemployment", unemployment).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
+vegaEmbed("#unemployment", unemployment).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
 
-
+vegaEmbed("#map", map).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
 
 
 
