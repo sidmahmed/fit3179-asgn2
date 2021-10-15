@@ -3,7 +3,9 @@
   "title": "Top _ industries by Number of Visas Granted",
   "data": {
     "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/year-industry.csv"
-  },
+  }, 
+  "width": 600,
+  "height": 400,
   "mark": "bar",
   "params": [
     {
