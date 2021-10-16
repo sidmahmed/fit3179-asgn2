@@ -1,35 +1,54 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
+  "description": "Multi-series line chart with labels and interactive highlight on hover.  We also set the selection's initial value to provide a better screenshot",
+  "data": {"url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/top_industry.csv"},
+    "width": 600,
   "height": 400,
-  "data": {
-    "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/top_industry.csv"
-  },
-  "mark": {"type": "line", "point": true},
   "encoding": {
-    "x": {"timeUnit": "year", "field": "Year"},
-    "y": {
-      "field": "Number",
-      "type": "quantitative",
-      "title": "Number of Visas Granted"
+    "x": {"field": "Year", "type": "temporal", "title": "date", "timeUnit": "year"},
+    "y": {"field": "Number", "type": "quantitative", "title": "Number of migrations"},
+    "color": {
+      "condition": {
+        "param": "hover",
+        "field":"Industry",
+        "type":"nominal",
+        "legend": null
+      },
+      "value": "grey"
     },
-    "color": {"field": "Industry", "type": "nominal"}
-  },
-  "params": [
-    {
-      "name": "Year",
-      "value": 2019,
-      "bind": {
-        "input": "range",
-        "min": 2007,
-        "max": 2019,
-        "step": 1,
-        "name": "Year"
-      }
+    "opacity": {
+      "condition": {
+        "param": "hover",
+        "value": 1
+      },
+      "value": 0.2
     }
-  ],
-  "transform": [
-    {"filter": {"timeUnit": "year", "field": "Year", "lte": "Year"}}
-  ],
-  "config": {}
+  },
+  "layer": [{
+    "description": "transparent layer to make it easier to trigger selection",
+    "params": [{
+      "name": "hover",
+      "value": [{"Industry": "Accommodation and Food Services"}],
+      "select": {
+        "type": "point",
+        "fields": ["Industry"],
+        "on": "click"
+      }
+    }],
+    "mark": {"type": "line", "strokeWidth": 8, "stroke": "transparent", "point": true}
+  }, {
+    "mark": "line"
+  }, {
+    "encoding": {
+      "x": {"aggregate": "max", "field": "Year"},
+      "y": {"aggregate": {"argmax": "Year"}, "field": "Number"}
+    },
+    "layer": [{
+      "mark": {"type": "circle"}
+    }, {
+      "mark": {"type": "text", "align": "left", "dx": 4},
+      "encoding": {"text": {"field":"Industry", "type": "nominal"}}
+    }]
+  }],
+  "config": {"view": {"stroke": null}}
 }

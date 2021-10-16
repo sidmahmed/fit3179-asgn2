@@ -1,131 +1,118 @@
-,Year,Industry,Number
-0,2007,Accommodation and Food Services,484
-4,2007,Construction,497
-5,2007,Education and Training,573
-7,2007,Financial and Insurance Services,415
-8,2007,Health Care and Social Assistance,1948
-9,2007,Information Media and Telecommunications,573
-10,2007,Manufacturing,712
-12,2007,Other Services,896
-13,2007,"Professional, Scientific and Technical Services",534
-16,2007,Retail Trade,296
-19,2008,Accommodation and Food Services,839
-23,2008,Construction,1002
-24,2008,Education and Training,791
-26,2008,Financial and Insurance Services,562
-27,2008,Health Care and Social Assistance,3207
-28,2008,Information Media and Telecommunications,725
-29,2008,Manufacturing,1390
-31,2008,Other Services,1429
-32,2008,"Professional, Scientific and Technical Services",895
-35,2008,Retail Trade,485
-38,2009,Accommodation and Food Services,1277
-42,2009,Construction,1225
-43,2009,Education and Training,838
-45,2009,Financial and Insurance Services,514
-46,2009,Health Care and Social Assistance,3402
-47,2009,Information Media and Telecommunications,806
-48,2009,Manufacturing,1733
-50,2009,Other Services,1767
-51,2009,"Professional, Scientific and Technical Services",933
-54,2009,Retail Trade,525
-57,2010,Accommodation and Food Services,1978
-61,2010,Construction,1535
-62,2010,Education and Training,1021
-64,2010,Financial and Insurance Services,699
-65,2010,Health Care and Social Assistance,3213
-66,2010,Information Media and Telecommunications,1074
-67,2010,Manufacturing,1802
-69,2010,Other Services,2158
-70,2010,"Professional, Scientific and Technical Services",1237
-73,2010,Retail Trade,754
-76,2011,Accommodation and Food Services,3122
-80,2011,Construction,1717
-81,2011,Education and Training,1016
-83,2011,Financial and Insurance Services,515
-84,2011,Health Care and Social Assistance,3301
-85,2011,Information Media and Telecommunications,962
-86,2011,Manufacturing,1774
-88,2011,Other Services,2648
-89,2011,"Professional, Scientific and Technical Services",1202
-92,2011,Retail Trade,989
-95,2012,Accommodation and Food Services,3797
-99,2012,Construction,1760
-100,2012,Education and Training,928
-102,2012,Financial and Insurance Services,605
-103,2012,Health Care and Social Assistance,2772
-104,2012,Information Media and Telecommunications,1034
-105,2012,Manufacturing,1690
-107,2012,Other Services,3077
-108,2012,"Professional, Scientific and Technical Services",1462
-111,2012,Retail Trade,1144
-114,2013,Accommodation and Food Services,3247
-118,2013,Construction,1784
-119,2013,Education and Training,1286
-121,2013,Financial and Insurance Services,647
-122,2013,Health Care and Social Assistance,2688
-123,2013,Information Media and Telecommunications,1193
-124,2013,Manufacturing,1350
-126,2013,Other Services,2847
-127,2013,"Professional, Scientific and Technical Services",1993
-130,2013,Retail Trade,1084
-133,2014,Accommodation and Food Services,3560
-137,2014,Construction,2138
-138,2014,Education and Training,1282
-140,2014,Financial and Insurance Services,612
-141,2014,Health Care and Social Assistance,1986
-142,2014,Information Media and Telecommunications,1281
-143,2014,Manufacturing,1414
-145,2014,Other Services,3154
-146,2014,"Professional, Scientific and Technical Services",2098
-149,2014,Retail Trade,1240
-152,2015,Accommodation and Food Services,4528
-156,2015,Construction,1696
-157,2015,Education and Training,1245
-159,2015,Financial and Insurance Services,635
-160,2015,Health Care and Social Assistance,1671
-161,2015,Information Media and Telecommunications,1214
-162,2015,Manufacturing,1327
-164,2015,Other Services,3430
-165,2015,"Professional, Scientific and Technical Services",1963
-168,2015,Retail Trade,1541
-171,2016,Accommodation and Food Services,4473
-175,2016,Construction,1683
-176,2016,Education and Training,1296
-178,2016,Financial and Insurance Services,717
-179,2016,Health Care and Social Assistance,1610
-180,2016,Information Media and Telecommunications,1244
-181,2016,Manufacturing,1456
-183,2016,Other Services,3509
-184,2016,"Professional, Scientific and Technical Services",2013
-187,2016,Retail Trade,1503
-190,2017,Accommodation and Food Services,2381
-194,2017,Construction,1112
-195,2017,Education and Training,1114
-197,2017,Financial and Insurance Services,667
-198,2017,Health Care and Social Assistance,1318
-199,2017,Information Media and Telecommunications,1294
-200,2017,Manufacturing,947
-202,2017,Other Services,2241
-203,2017,"Professional, Scientific and Technical Services",2141
-206,2017,Retail Trade,856
-209,2018,Accommodation and Food Services,3824
-213,2018,Construction,1135
-214,2018,Education and Training,1706
-216,2018,Financial and Insurance Services,933
-217,2018,Health Care and Social Assistance,1486
-218,2018,Information Media and Telecommunications,1614
-219,2018,Manufacturing,956
-221,2018,Other Services,2501
-222,2018,"Professional, Scientific and Technical Services",2687
-225,2018,Retail Trade,971
-228,2019,Accommodation and Food Services,2455
-232,2019,Construction,1092
-233,2019,Education and Training,902
-235,2019,Financial and Insurance Services,460
-236,2019,Health Care and Social Assistance,1260
-237,2019,Information Media and Telecommunications,1135
-238,2019,Manufacturing,798
-240,2019,Other Services,1558
-241,2019,"Professional, Scientific and Technical Services",1847
-244,2019,Retail Trade,535
+Year,Industry,Number
+2007,Accommodation and Food Services,484
+2007,Construction,497
+2007,Education and Training,573
+2007,Financial and Insurance Services,415
+2007,Health Care and Social Assistance,1948
+2007,Information Media and Telecommunications,573
+2007,Manufacturing,712
+2007,"Professional, Scientific and Technical Services",534
+2007,Retail Trade,296
+2008,Accommodation and Food Services,839
+2008,Construction,1002
+2008,Education and Training,791
+2008,Financial and Insurance Services,562
+2008,Health Care and Social Assistance,3207
+2008,Information Media and Telecommunications,725
+2008,Manufacturing,1390
+2008,"Professional, Scientific and Technical Services",895
+2008,Retail Trade,485
+2009,Accommodation and Food Services,1277
+2009,Construction,1225
+2009,Education and Training,838
+2009,Financial and Insurance Services,514
+2009,Health Care and Social Assistance,3402
+2009,Information Media and Telecommunications,806
+2009,Manufacturing,1733
+2009,"Professional, Scientific and Technical Services",933
+2009,Retail Trade,525
+2010,Accommodation and Food Services,1978
+2010,Construction,1535
+2010,Education and Training,1021
+2010,Financial and Insurance Services,699
+2010,Health Care and Social Assistance,3213
+2010,Information Media and Telecommunications,1074
+2010,Manufacturing,1802
+2010,"Professional, Scientific and Technical Services",1237
+2010,Retail Trade,754
+2011,Accommodation and Food Services,3122
+2011,Construction,1717
+2011,Education and Training,1016
+2011,Financial and Insurance Services,515
+2011,Health Care and Social Assistance,3301
+2011,Information Media and Telecommunications,962
+2011,Manufacturing,1774
+2011,"Professional, Scientific and Technical Services",1202
+2011,Retail Trade,989
+2012,Accommodation and Food Services,3797
+2012,Construction,1760
+2012,Education and Training,928
+2012,Financial and Insurance Services,605
+2012,Health Care and Social Assistance,2772
+2012,Information Media and Telecommunications,1034
+2012,Manufacturing,1690
+2012,"Professional, Scientific and Technical Services",1462
+2012,Retail Trade,1144
+2013,Accommodation and Food Services,3247
+2013,Construction,1784
+2013,Education and Training,1286
+2013,Financial and Insurance Services,647
+2013,Health Care and Social Assistance,2688
+2013,Information Media and Telecommunications,1193
+2013,Manufacturing,1350
+2013,"Professional, Scientific and Technical Services",1993
+2013,Retail Trade,1084
+2014,Accommodation and Food Services,3560
+2014,Construction,2138
+2014,Education and Training,1282
+2014,Financial and Insurance Services,612
+2014,Health Care and Social Assistance,1986
+2014,Information Media and Telecommunications,1281
+2014,Manufacturing,1414
+2014,"Professional, Scientific and Technical Services",2098
+2014,Retail Trade,1240
+2015,Accommodation and Food Services,4528
+2015,Construction,1696
+2015,Education and Training,1245
+2015,Financial and Insurance Services,635
+2015,Health Care and Social Assistance,1671
+2015,Information Media and Telecommunications,1214
+2015,Manufacturing,1327
+2015,"Professional, Scientific and Technical Services",1963
+2015,Retail Trade,1541
+2016,Accommodation and Food Services,4473
+2016,Construction,1683
+2016,Education and Training,1296
+2016,Financial and Insurance Services,717
+2016,Health Care and Social Assistance,1610
+2016,Information Media and Telecommunications,1244
+2016,Manufacturing,1456
+2016,"Professional, Scientific and Technical Services",2013
+2016,Retail Trade,1503
+2017,Accommodation and Food Services,2381
+2017,Construction,1112
+2017,Education and Training,1114
+2017,Financial and Insurance Services,667
+2017,Health Care and Social Assistance,1318
+2017,Information Media and Telecommunications,1294
+2017,Manufacturing,947
+2017,"Professional, Scientific and Technical Services",2141
+2017,Retail Trade,856
+2018,Accommodation and Food Services,3824
+2018,Construction,1135
+2018,Education and Training,1706
+2018,Financial and Insurance Services,933
+2018,Health Care and Social Assistance,1486
+2018,Information Media and Telecommunications,1614
+2018,Manufacturing,956
+2018,"Professional, Scientific and Technical Services",2687
+2018,Retail Trade,971
+2019,Accommodation and Food Services,2455
+2019,Construction,1092
+2019,Education and Training,902
+2019,Financial and Insurance Services,460
+2019,Health Care and Social Assistance,1260
+2019,Information Media and Telecommunications,1135
+2019,Manufacturing,798
+2019,"Professional, Scientific and Technical Services",1847
+2019,Retail Trade,535
