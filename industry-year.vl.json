@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Multi-series line chart with labels and interactive highlight on hover.  We also set the selection's initial value to provide a better screenshot",
   "data": {"url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/top_industry.csv"},
     "width": 600,
   "height": 400,
@@ -9,16 +8,16 @@
     "y": {"field": "Number", "type": "quantitative", "title": "Number of migrations"},
     "color": {
       "condition": {
-        "param": "hover",
-        "field":"Industry",
-        "type":"nominal",
-        "legend": null
+        "test": "datum.Industry ==  'Accommodation and Food Services' || datum.Industry ==  'Professional, Scientific and Technical Services' || datum.Industry ==  'Health Care and Social Assistance'",
+        "field": "Industry",
+        "type": "nominal",
+        "legend" :null
       },
       "value": "grey"
     },
     "opacity": {
       "condition": {
-        "param": "hover",
+        "test" : "datum.Industry ==  'Accommodation and Food Services' || datum.Industry ==  'Professional, Scientific and Technical Services' || datum.Industry ==  'Health Care and Social Assistance'",
         "value": 1
       },
       "value": 0.2

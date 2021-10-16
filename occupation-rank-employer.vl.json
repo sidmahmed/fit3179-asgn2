@@ -1,27 +1,68 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Bump chart",
-    "width": 600,
-    "height": 400,
-    "data": {
-      "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/occupation-rank.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Multi-series line chart with labels and interactive highlight on hover.  We also set the selection's initial value to provide a better screenshot",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/occupation-rank.csv"
+  },
+  "width": 600,
+  "height": 400,
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "nominal",
+      "title": "Year"
     },
-    "mark": {"type": "line", "point": true, "strokeWidth": 3},
-    "encoding": {
-      "x": {"field": "Year", "type": "nominal"},
-      "y": {
-        "field": "Rank",
+    "y": {
+      "field": "Rank",
+      "type": "quantitative",
+      "title": "Rank", "sort": "descending", "scale": {"domain": [1,11]},
+      "axis" : {
+        "grid": false  
+      }
+      
+    },
+    "color": {
+      "condition": {
+        "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+        "field": "Occupation",
         "type": "nominal",
-        "sort": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        "legend" :null
       },
-      "color": {"field": "Occupation", "type": "nominal"},
-      "tooltip": [
-        {"field": "Occupation", "type": "nominal", "title": "Occupation"},
+      "value": "grey"
+    },
+    "opacity": {"condition": {"test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'", "value": 1}, "value": 0.2}
+  },
+  "layer": [
+    {
+      "description": "transparent layer to make it easier to trigger selection",
+      "params": [
         {
-          "field": "Rank",
-          "type": "nominal",
-          "title": "Rank"
+          "name": "hover",
+          "value": [{"Occupation": "Cooks"}],
+          "select": {"type": "point", "fields": ["Occupation"], "on": "click"}
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 8,
+        "stroke": "transparent",
+        "point": true
+      }
+    },
+    {"mark": "line"},
+    {
+      "encoding": {
+        "x": {"aggregate": "max", "field": "Year"},
+        "y": {"aggregate": {"argmax": "Year"}, "field": "Rank"}
+      },
+      "layer": [
+        {"mark": {"type": "circle"}},
+        {
+          "mark": {"type": "text", "align": "left", "dx": 4},
+          "encoding": {"text": {"field": "Occupation", "type": "nominal"}}
         }
       ]
     }
-  }
+  ],
+  "config": {"view": {"stroke": null}}
+}
