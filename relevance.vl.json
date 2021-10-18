@@ -1,0 +1,33 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": { "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/relevance.csv"},
+    "mark": "bar",
+    "title": "Relevance between education and work",
+    "width": 125,
+    "height": 300,
+    "encoding": {
+      "column": {
+        "field": "Arrival", "type": "ordinal", "spacing": 10,
+        "header": {"orient": "bottom"},
+        "sort" : ["Before 2001", "Between 2001 - 2005", "Between 2006 - 2010", "After 2010"]
+      },
+      "y": {
+        "aggregate": "sum", "field": "Number",
+        "title": "Number of migrants",
+        "axis": {"grid": false}
+      },
+      "x": {
+        "field": "Type",
+        "axis": null
+  
+      },
+      "color": {
+        "field": "Type"
+      }
+    },
+    "config": {
+      "view": {"stroke": "transparent"},
+      "axis": {"domainWidth": 1}
+    }
+  }
+  
