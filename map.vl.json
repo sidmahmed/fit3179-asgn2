@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Australian Immigrant Population",
+  "width": 500,
+  "height": 400,
+  "projection": {"type": "equirectangular"},
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2015,
+      "bind": {
+        "input": "range",
+        "min": 2000,
+        "max": 2015,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    },
+      {
+      "name": "Visa_selection",
+      "value": "Skilled",
+      "bind": {"input": "select", "options": ["Skilled", "Humanitarian", "Family"], "name": "Select type of Visa: "}
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/state-year-visa.csv"
+  },
+  "transform": [
+    {
+      "lookup": "State",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/STE_2016_AUST.json",
+          "format": {"type": "topojson", "feature": "STE_2016_AUST"}
+        },
+        "key": "properties.STE_NAME16"
+      },
+      "as": "geo"
+    },
+    {"filter": "datum.Year == Year_selection"},
+    {"filter": "datum.Visa == Visa_selection"}
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "shape": {"field": "geo", "type": "geojson"},
+    "color": {"field": "Number", "type": "quantitative"},
+    "tooltip": [
+      {"field": "State", "title": "State"},
+      {
+        "field": "Number",
+        "type": "quantitative",
+        "title": "Number of visas granted"
+      },
+      {
+        "field": "Visa",
+        "title": "Type of Visa"
+      }
+    ]
+  },
+  "config": {}
+}

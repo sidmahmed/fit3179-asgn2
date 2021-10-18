@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/top_industry.csv"},
-    "width": 600,
+  "width": 500,
   "height": 400,
   "encoding": {
     "x": {"field": "Year", "type": "temporal", "title": "date", "timeUnit": "year"},
