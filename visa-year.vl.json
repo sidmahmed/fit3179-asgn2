@@ -8,12 +8,18 @@
   "layer": [
     {
       "encoding": {
-        "x": {"field": "Year", "type": "temporal"},
+        "x": {"field": "Year", "type": "temporal", 
+        "axis" : {
+          "grid": false  
+        }},
         "y": {
           "field": "Number",
           "title": "Number of Visas graned",
           "type": "quantitative",
-          "scale": {"domain": [0, 150000]}
+          "scale": {"domain": [0, 150000]}, 
+          "axis" : {
+            "grid": false  
+          }
         },
         "color": {"field": "Visa Category", "type": "nominal"}
       },

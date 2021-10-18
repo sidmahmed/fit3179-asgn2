@@ -4,8 +4,12 @@
   "width": 500,
   "height": 400,
   "encoding": {
-    "x": {"field": "Year", "type": "temporal", "title": "date", "timeUnit": "year"},
-    "y": {"field": "Number", "type": "quantitative", "title": "Number of migrations"},
+    "x": {"field": "Year", "type": "temporal", "title": "date", "timeUnit": "year", "axis" : {
+      "grid": false  
+    }},
+    "y": {"field": "Number", "type": "quantitative", "title": "Number of migrations", "axis" : {
+      "grid": false  
+    }},
     "color": {
       "condition": {
         "test": "datum.Industry ==  'Accommodation and Food Services' || datum.Industry ==  'Professional, Scientific and Technical Services' || datum.Industry ==  'Health Care and Social Assistance'",
