@@ -1,68 +1,491 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Multi-series line chart with labels and interactive highlight on hover.  We also set the selection's initial value to provide a better screenshot",
-  "data": {
-    "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/occupation-rank.csv"
-  },
+  "background": "#FFFFFF",
+  "padding": 5,
   "width": 500,
   "height": 400,
-  "encoding": {
-    "x": {
-      "field": "Year",
-      "type": "nominal",
-      "title": "Year"
-    },
-    "y": {
-      "field": "Rank",
-      "type": "quantitative",
-      "title": "Rank", "sort": "descending", "scale": {"domain": [1,11]},
-      "axis" : {
-        "grid": false  
-      }
-      
-    },
-    "color": {
-      "condition": {
-        "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
-        "field": "Occupation",
-        "type": "nominal",
-        "legend" :null
-      },
-      "value": "grey"
-    },
-    "opacity": {"condition": {"test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'", "value": 1}, "value": 0.2}
-  },
-  "layer": [
+  "style": "cell",
+  "data": [
     {
-      "description": "transparent layer to make it easier to trigger selection",
-      "params": [
+      "name": "hover_store",
+      "values": [
         {
-          "name": "hover",
-          "value": [{"Occupation": "Cooks"}],
-          "select": {"type": "point", "fields": ["Occupation"], "on": "click"}
+          "unit": "layer_0_layer_0",
+          "fields": [{"type": "E", "field": "Occupation"}],
+          "values": ["Cooks"]
         }
-      ],
-      "mark": {
-        "type": "line",
-        "strokeWidth": 8,
-        "stroke": "transparent",
-        "point": true
-      }
+      ]
     },
-    {"mark": "line"},
     {
-      "encoding": {
-        "x": {"aggregate": "max", "field": "Year"},
-        "y": {"aggregate": {"argmax": "Year"}, "field": "Rank"}
-      },
-      "layer": [
-        {"mark": {"type": "circle"}},
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/occupation-rank.csv",
+      "format": {"type": "csv"}
+    },
+    {
+      "name": "data_1",
+      "source": "source_0",
+      "transform": [
         {
-          "mark": {"type": "text", "align": "left", "dx": 4},
-          "encoding": {"text": {"field": "Occupation", "type": "nominal"}}
+          "type": "filter",
+          "expr": "isValid(datum[\"Rank\"]) && isFinite(+datum[\"Rank\"])"
+        }
+      ]
+    },
+    {
+      "name": "data_2",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["Occupation"],
+          "ops": ["max", "argmax"],
+          "fields": ["Year", "Year"],
+          "as": ["max_Year", "argmax_Year"]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"argmax_Year\"][\"Rank\"]) && isFinite(+datum[\"argmax_Year\"][\"Rank\"])"
         }
       ]
     }
   ],
-  "config": {"view": {"stroke": null}}
+  "signals": [
+    {
+      "name": "unit",
+      "value": {},
+      "on": [
+        {"events": "mousemove", "update": "isTuple(group()) ? group() : unit"}
+      ]
+    },
+    {
+      "name": "hover",
+      "update": "vlSelectionResolve(\"hover_store\", \"union\", true, true)"
+    },
+    {
+      "name": "hover_tuple",
+      "on": [
+        {
+          "events": [{"source": "scope", "type": "click"}],
+          "update": "datum && item().mark.marktype !== 'group' ? {unit: \"layer_0_layer_0\", fields: hover_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"Occupation\"]]} : null",
+          "force": true
+        },
+        {"events": [{"source": "view", "type": "dblclick"}], "update": "null"}
+      ]
+    },
+    {
+      "name": "hover_tuple_fields",
+      "value": [{"type": "E", "field": "Occupation"}]
+    },
+    {
+      "name": "hover_toggle",
+      "value": false,
+      "on": [
+        {
+          "events": [{"source": "scope", "type": "click"}],
+          "update": "event.shiftKey"
+        },
+        {"events": [{"source": "view", "type": "dblclick"}], "update": "false"}
+      ]
+    },
+    {
+      "name": "hover_modify",
+      "on": [
+        {
+          "events": {"signal": "hover_tuple"},
+          "update": "modify(\"hover_store\", hover_toggle ? null : hover_tuple, hover_toggle ? null : true, hover_toggle ? hover_tuple : null)"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_layer_0_pathgroup",
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "faceted_path_layer_0_layer_0_main",
+          "data": "source_0",
+          "groupby": ["Occupation"]
+        }
+      },
+      "encode": {
+        "update": {
+          "width": {"field": {"group": "width"}},
+          "height": {"field": {"group": "height"}}
+        }
+      },
+      "marks": [
+        {
+          "name": "layer_0_layer_0_marks",
+          "type": "line",
+          "style": ["line"],
+          "sort": {"field": "datum[\"Year\"]"},
+          "interactive": true,
+          "from": {"data": "faceted_path_layer_0_layer_0_main"},
+          "encode": {
+            "update": {
+              "stroke": {"value": "transparent"},
+              "strokeWidth": {"value": 8},
+              "opacity": [
+                {
+                  "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+                  "value": 1
+                },
+                {"value": 0.2}
+              ],
+              "description": {
+                "signal": "\"Year: \" + (isValid(datum[\"Year\"]) ? datum[\"Year\"] : \"\"+datum[\"Year\"]) + \"; Rank: \" + (format(datum[\"Rank\"], \"\")) + \"; Occupation: \" + (isValid(datum[\"Occupation\"]) ? datum[\"Occupation\"] : \"\"+datum[\"Occupation\"])"
+              },
+              "x": {"scale": "x", "field": "Year"},
+              "y": {"scale": "y", "field": "Rank"},
+              "defined": {
+                "signal": "isValid(datum[\"Rank\"]) && isFinite(+datum[\"Rank\"])"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "layer_0_layer_1_marks",
+      "type": "symbol",
+      "style": ["point"],
+      "interactive": false,
+      "from": {"data": "data_1"},
+      "encode": {
+        "update": {
+          "opacity": [
+            {
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "value": 1
+            },
+            {"value": 0.2}
+          ],
+          "fill": [
+            {
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "scale": "color",
+              "field": "Occupation"
+            },
+            {"value": "grey"}
+          ],
+          "ariaRoleDescription": {"value": "point"},
+          "description": {
+            "signal": "\"Year: \" + (isValid(datum[\"Year\"]) ? datum[\"Year\"] : \"\"+datum[\"Year\"]) + \"; Rank: \" + (format(datum[\"Rank\"], \"\")) + \"; Occupation: \" + (isValid(datum[\"Occupation\"]) ? datum[\"Occupation\"] : \"\"+datum[\"Occupation\"])"
+          },
+          "x": {"scale": "x", "field": "Year"},
+          "y": [
+            {
+              "test": "!isValid(datum[\"Rank\"]) || !isFinite(+datum[\"Rank\"])",
+              "field": {"group": "height"}
+            },
+            {"scale": "y", "field": "Rank"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "layer_1_pathgroup",
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "faceted_path_layer_1_main",
+          "data": "source_0",
+          "groupby": ["Occupation"]
+        }
+      },
+      "encode": {
+        "update": {
+          "width": {"field": {"group": "width"}},
+          "height": {"field": {"group": "height"}}
+        }
+      },
+      "marks": [
+        {
+          "name": "layer_1_marks",
+          "type": "line",
+          "style": ["line"],
+          "sort": {"field": "datum[\"Year\"]"},
+          "interactive": false,
+          "from": {"data": "faceted_path_layer_1_main"},
+          "encode": {
+            "update": {
+              "stroke": [
+                {
+                  "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+                  "scale": "color",
+                  "field": "Occupation"
+                },
+                {"value": "grey"}
+              ],
+              "opacity": [
+                {
+                  "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+                  "value": 1
+                },
+                {"value": 0.2}
+              ],
+              "description": {
+                "signal": "\"Year: \" + (isValid(datum[\"Year\"]) ? datum[\"Year\"] : \"\"+datum[\"Year\"]) + \"; Rank: \" + (format(datum[\"Rank\"], \"\")) + \"; Occupation: \" + (isValid(datum[\"Occupation\"]) ? datum[\"Occupation\"] : \"\"+datum[\"Occupation\"])"
+              },
+              "x": {"scale": "x", "field": "Year"},
+              "y": {"scale": "y", "field": "Rank"},
+              "strokeWidth": {"value": 5},
+              "defined": {
+                "signal": "isValid(datum[\"Rank\"]) && isFinite(+datum[\"Rank\"])"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "layer_2_layer_0_marks",
+      "type": "symbol",
+      "style": ["circle"],
+      "interactive": false,
+      "from": {"data": "data_2"},
+      "encode": {
+        "update": {
+          "fill": [
+            {
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "scale": "color",
+              "field": "Occupation"
+            },
+            {"value": "grey"}
+          ],
+          "opacity": [
+            {
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "value": 1
+            },
+            {"value": 0.2}
+          ],
+          "ariaRoleDescription": {"value": "circle"},
+          "description": {
+            "signal": "\"Year: \" + (isValid(datum[\"max_Year\"]) ? datum[\"max_Year\"] : \"\"+datum[\"max_Year\"]) + \"; Rank: \" + (format(datum[\"argmax_Year\"][\"Rank\"], \"\")) + \"; Occupation: \" + (isValid(datum[\"Occupation\"]) ? datum[\"Occupation\"] : \"\"+datum[\"Occupation\"])"
+          },
+          "x": {"scale": "x", "field": "max_Year"},
+          "y": [
+            {
+              "test": "!isValid(datum[\"argmax_Year\"][\"Rank\"]) || !isFinite(+datum[\"argmax_Year\"][\"Rank\"])",
+              "field": {"group": "height"}
+            },
+            {"scale": "y", "field": "argmax_Year[\"Rank\"]"}
+          ],
+          "shape": {"value": "circle"}
+        }
+      }
+    },
+    {
+      "name": "layer_2_layer_1_marks",
+      "type": "text",
+      "style": ["text"],
+      "interactive": false,
+      "from": {"data": "data_2"},
+      "encode": {
+        "update": {
+          "align": {"value": "left"},
+          "dx": {"value": 4},
+          "fill": [
+            {
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "scale": "color",
+              "field": "Occupation"
+            },
+            {"value": "grey"}
+          ],
+          "opacity": [
+            {
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "value": 1
+            },
+            {"value": 0.2}
+          ],
+          "description": {
+            "signal": "\"Year: \" + (isValid(datum[\"max_Year\"]) ? datum[\"max_Year\"] : \"\"+datum[\"max_Year\"]) + \"; Rank: \" + (format(datum[\"argmax_Year\"][\"Rank\"], \"\")) + \"; Occupation: \" + (isValid(datum[\"Occupation\"]) ? datum[\"Occupation\"] : \"\"+datum[\"Occupation\"])"
+          },
+          "x": {"scale": "x", "field": "max_Year"},
+          "y": [
+            {
+              "test": "!isValid(datum[\"argmax_Year\"][\"Rank\"]) || !isFinite(+datum[\"argmax_Year\"][\"Rank\"])",
+              "field": {"group": "height"}
+            },
+            {"scale": "y", "field": "argmax_Year[\"Rank\"]"}
+          ],
+          "text": {
+            "signal": "isValid(datum[\"Occupation\"]) ? datum[\"Occupation\"] : \"\"+datum[\"Occupation\"]"
+          },
+          "fontSize": {"value": 11},
+          "baseline": {"value": "middle"}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "point",
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "Year"},
+          {"data": "data_1", "field": "Year"},
+          {"data": "data_2", "field": "max_Year"}
+        ],
+        "sort": true
+      },
+      "range": [0, {"signal": "width"}],
+      "padding": 0.5
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": [1, 11],
+      "range": [{"signal": "height"}, 0],
+      "reverse": true,
+      "zero": false
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "Cooks",
+        "Software and Applications Programmers",
+        "Cafe and Restaurant Managers"
+      ],
+      "range": ["#1696d2", "#ec008b", "#fdbf11"]
+    }
+  ],
+  "axes": [
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "title": "Year",
+      "labelBaseline": "top",
+      "zindex": 0
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "title": "Rank",
+      "labelOverlap": true,
+      "tickCount": {"signal": "ceil(height/40)"},
+      "zindex": 0
+    }
+  ],
+  "config": {
+    "range": {
+      "category": [
+        "#1696d2",
+        "#ec008b",
+        "#fdbf11",
+        "#000000",
+        "#d2d2d2",
+        "#55b748"
+      ],
+      "diverging": [
+        "#ca5800",
+        "#fdbf11",
+        "#fdd870",
+        "#fff2cf",
+        "#cfe8f3",
+        "#73bfe2",
+        "#1696d2",
+        "#0a4c6a"
+      ],
+      "heatmap": [
+        "#ca5800",
+        "#fdbf11",
+        "#fdd870",
+        "#fff2cf",
+        "#cfe8f3",
+        "#73bfe2",
+        "#1696d2",
+        "#0a4c6a"
+      ],
+      "ordinal": [
+        "#cfe8f3",
+        "#a2d4ec",
+        "#73bfe2",
+        "#46abdb",
+        "#1696d2",
+        "#12719e"
+      ],
+      "ramp": [
+        "#CFE8F3",
+        "#A2D4EC",
+        "#73BFE2",
+        "#46ABDB",
+        "#1696D2",
+        "#12719E",
+        "#0A4C6A",
+        "#062635"
+      ]
+    },
+    "path": {"stroke": "#1696d2", "strokeWidth": 0.5},
+    "shape": {"stroke": "#1696d2"},
+    "symbol": {"fill": "#1696d2", "size": 30},
+    "axisX": {
+      "domain": true,
+      "domainColor": "#000000",
+      "domainWidth": 1,
+      "grid": false,
+      "labelFontSize": 12,
+      "labelFont": "Lato",
+      "labelAngle": 0,
+      "tickColor": "#000000",
+      "tickSize": 5,
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFont": "Lato"
+    },
+    "axisY": {
+      "domain": false,
+      "domainWidth": 1,
+      "grid": true,
+      "gridColor": "#DEDDDD",
+      "gridWidth": 1,
+      "labelFontSize": 12,
+      "labelFont": "Lato",
+      "labelPadding": 8,
+      "ticks": false,
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFont": "Lato",
+      "titleAngle": 0,
+      "titleY": -10,
+      "titleX": 18
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "labelFont": "Lato",
+      "symbolSize": 100,
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFont": "Lato",
+      "orient": "right",
+      "offset": 10
+    },
+    "style": {
+      "bar": {"fill": "#1696d2", "stroke": null},
+      "cell": {"stroke": null},
+      "arc": {"fill": "#1696d2"},
+      "area": {"fill": "#1696d2"},
+      "line": {"stroke": "#1696d2", "strokeWidth": 5},
+      "rect": {"fill": "#1696d2"},
+      "text": {
+        "font": "Lato",
+        "fontSize": 11,
+        "align": "center",
+        "fontWeight": 400,
+        "size": 11
+      },
+      "trail": {"stroke": "#1696d2", "strokeWidth": 0, "size": 1},
+      "group-title": {"fontSize": 18, "font": "Lato"}
+    }
+  }
 }

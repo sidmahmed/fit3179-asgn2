@@ -1,13 +1,13 @@
 Type,Arrival,Number
-Working in the same field,Before 2001,52000
-Working in the same field,Between 2001 - 2005,73600
-Working in the same field,Between 2006 - 2010,58900
-Working in the same field,After 2010,55900
-Not working in the same field but relevant,Before 2001,16900
-Not working in the same field but relevant,Between 2001 - 2005,21500
-Not working in the same field but relevant,Between 2006 - 2010,16200
-Not working in the same field but relevant,After 2010,15600
-Not working in the same field and not relevant,Before 2001,20800
-Not working in the same field and not relevant,Between 2001 - 2005,17000
-Not working in the same field and not relevant,Between 2006 - 2010,27000
-Not working in the same field and not relevant,After 2010,20400
+Same field,Before 2001,52000
+Same field,Between 2001 - 2005,73600
+Same field,Between 2006 - 2010,58900
+Same field,After 2010,55900
+Not same field but relevant,Before 2001,16900
+Not same field but relevant,Between 2001 - 2005,21500
+Not same field but relevant,Between 2006 - 2010,16200
+Not same field but relevant,After 2010,15600
+Not same field and not relevant,Before 2001,20800
+Not same field and not relevant,Between 2001 - 2005,17000
+Not same field and not relevant,Between 2006 - 2010,27000
+Not same field and not relevant,After 2010,20400

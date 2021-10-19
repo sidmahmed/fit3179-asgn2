@@ -1,0 +1,237 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Stock prices of four large companies as a small multiples of area charts.",
+  "background": "#fff",
+  "padding": 5,
+  "data": [
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/origin.csv",
+      "format": {"type": "csv", "parse": {"Year": "date"}, "delimiter": ","},
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.Country == 'India' || datum.Country == 'United Kingdom' || datum.Country == 'Philippines'"
+        },
+        {
+          "type": "impute",
+          "field": "Number of visas granted",
+          "groupby": ["Country", "Country"],
+          "key": "Year",
+          "method": "value",
+          "value": 0
+        },
+        {
+          "type": "stack",
+          "groupby": ["Year", "Country"],
+          "field": "Number of visas granted",
+          "sort": {"field": ["Country"], "order": ["descending"]},
+          "as": [
+            "Number of visas granted_start",
+            "Number of visas granted_end"
+          ],
+          "offset": "zero"
+        }
+      ]
+    },
+    {
+      "name": "row_domain",
+      "source": "source_0",
+      "transform": [{"type": "aggregate", "groupby": ["Country"]}]
+    }
+  ],
+  "signals": [
+    {"name": "child_width", "value": 600},
+    {"name": "child_height", "value": 100}
+  ],
+  "layout": {
+    "padding": 20,
+    "offset": {"rowTitle": 10},
+    "columns": 1,
+    "bounds": "full",
+    "align": "all"
+  },
+  "marks": [
+    {
+      "name": "row-title",
+      "type": "group",
+      "role": "row-title",
+      "title": {
+        "text": "Country",
+        "orient": "left",
+        "style": "guide-title",
+        "offset": 10
+      }
+    },
+    {
+      "name": "row_header",
+      "type": "group",
+      "role": "row-header",
+      "from": {"data": "row_domain"},
+      "sort": {"field": "datum[\"Country\"]", "order": "ascending"},
+      "title": {
+        "text": {
+          "signal": "isValid(parent[\"Country\"]) ? parent[\"Country\"] : \"\"+parent[\"Country\"]"
+        },
+        "orient": "left",
+        "style": "guide-label",
+        "frame": "group",
+        "offset": 10
+      },
+      "encode": {"update": {"height": {"signal": "child_height"}}},
+      "axes": [
+        {
+          "scale": "y",
+          "orient": "left",
+          "grid": false,
+          "title": "Visas granted",
+          "labelOverlap": true,
+          "tickCount": {"signal": "ceil(child_height/40)"},
+          "zindex": 0
+        }
+      ]
+    },
+    {
+      "name": "column_footer",
+      "type": "group",
+      "role": "column-footer",
+      "encode": {"update": {"width": {"signal": "child_width"}}},
+      "axes": [
+        {
+          "scale": "x",
+          "orient": "bottom",
+          "grid": false,
+          "title": "Year",
+          "labelFlush": true,
+          "labelOverlap": true,
+          "tickCount": {"signal": "ceil(child_width/40)"},
+          "zindex": 0
+        }
+      ]
+    },
+    {
+      "name": "cell",
+      "type": "group",
+      "style": "cell",
+      "from": {
+        "facet": {"name": "facet", "data": "source_0", "groupby": ["Country"]}
+      },
+      "sort": {"field": ["datum[\"Country\"]"], "order": ["ascending"]},
+      "encode": {
+        "update": {
+          "width": {"signal": "child_width"},
+          "height": {"signal": "child_height"}
+        }
+      },
+      "marks": [
+        {
+          "name": "child_pathgroup",
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "faceted_path_child_main",
+              "data": "facet",
+              "groupby": ["Country"]
+            }
+          },
+          "encode": {
+            "update": {
+              "width": {"field": {"group": "width"}},
+              "height": {"field": {"group": "height"}}
+            }
+          },
+          "marks": [
+            {
+              "name": "child_marks",
+              "type": "area",
+              "style": ["area"],
+              "sort": {"field": "datum[\"Year\"]"},
+              "from": {"data": "faceted_path_child_main"},
+              "encode": {
+                "update": {
+                  "orient": {"value": "vertical"},
+                  "fill": {"scale": "color", "field": "Country"},
+                  "description": {
+                    "signal": "\"Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y')) + \"; Visas granted: \" + (format(datum[\"Number of visas granted\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"])"
+                  },
+                  "x": {"scale": "x", "field": "Year"},
+                  "y": {"scale": "y", "field": "Number of visas granted_end"},
+                  "y2": {
+                    "scale": "y",
+                    "field": "Number of visas granted_start"
+                  },
+                  "defined": {
+                    "signal": "isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"]) && isValid(datum[\"Number of visas granted\"]) && isFinite(+datum[\"Number of visas granted\"])"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "time",
+      "domain": {"data": "source_0", "field": "Year"},
+      "range": [0, {"signal": "child_width"}]
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": {
+        "data": "source_0",
+        "fields": [
+          "Number of visas granted_start",
+          "Number of visas granted_end"
+        ]
+      },
+      "range": [{"signal": "child_height"}, 0],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "source_0", "field": "Country", "sort": true},
+      "range": "category"
+    }
+  ],
+  "config": {
+    "path": {"stroke": "#3e5c69"},
+    "shape": {"stroke": "#3e5c69"},
+    "symbol": {"fill": "#3e5c69"},
+    "range": {
+      "category": [
+        "#3e5c69",
+        "#6793a6",
+        "#182429",
+        "#0570b0",
+        "#3690c0",
+        "#74a9cf",
+        "#a6bddb",
+        "#e2ddf2"
+      ]
+    },
+    "axis": {
+      "domainWidth": 0.5,
+      "grid": true,
+      "labelPadding": 2,
+      "tickSize": 5,
+      "tickWidth": 0.5,
+      "titleFontWeight": "normal"
+    },
+    "axisBand": {"grid": false},
+    "axisX": {"gridWidth": 0.2},
+    "axisY": {"gridDash": [3], "gridWidth": 0.4},
+    "legend": {"labelFontSize": 11, "padding": 1, "symbolType": "square"},
+    "style": {
+      "arc": {"fill": "#3e5c69"},
+      "area": {"fill": "#3e5c69"},
+      "line": {"stroke": "#3e5c69"},
+      "rect": {"fill": "#3e5c69"}
+    }
+  }
+}

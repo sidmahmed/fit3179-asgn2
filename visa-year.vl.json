@@ -1,85 +1,443 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {
-    "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/year-visa.csv"
-  },
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "#FFFFFF",
+  "padding": 5,
   "width": 500,
   "height": 400,
-  "layer": [
+  "style": "cell",
+  "data": [
+    {"name": "label_store"},
     {
-      "encoding": {
-        "x": {"field": "Year", "type": "temporal", 
-        "axis" : {
-          "grid": false  
-        }},
-        "y": {
-          "field": "Number",
-          "title": "Number of Visas graned",
-          "type": "quantitative",
-          "scale": {"domain": [0, 150000]}, 
-          "axis" : {
-            "grid": false  
-          }
-        },
-        "color": {"field": "Visa Category", "type": "nominal"}
-      },
-      "layer": [
-        {"mark": "line"},
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/year-visa.csv",
+      "format": {"type": "csv", "parse": {"Year": "date"}}
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
         {
-          "params": [
+          "type": "filter",
+          "expr": "(isDate(datum[\"Year\"]) || (isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"]))) && isValid(datum[\"Number\"]) && isFinite(+datum[\"Number\"])"
+        }
+      ]
+    },
+    {
+      "name": "data_1",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "length(data(\"label_store\")) && vlSelectionTest(\"label_store\", datum)"
+        }
+      ]
+    },
+    {
+      "name": "data_2",
+      "source": "data_1",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "(isDate(datum[\"Year\"]) || (isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"])))"
+        }
+      ]
+    },
+    {
+      "name": "data_3",
+      "source": "data_1",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "(isDate(datum[\"Year\"]) || (isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"]))) && isValid(datum[\"Number\"]) && isFinite(+datum[\"Number\"])"
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "unit",
+      "value": {},
+      "on": [
+        {"events": "mousemove", "update": "isTuple(group()) ? group() : unit"}
+      ]
+    },
+    {
+      "name": "label",
+      "update": "vlSelectionResolve(\"label_store\", \"union\", true, true)"
+    },
+    {
+      "name": "label_tuple",
+      "on": [
+        {
+          "events": [
             {
-              "name": "label",
-              "select": {
-                "type": "point",
-                "encodings": ["x"],
-                "nearest": true,
-                "on": "mouseover"
-              }
+              "source": "scope",
+              "type": "mouseover",
+              "markname": "layer_0_layer_1_voronoi"
             }
           ],
-          "mark": "point",
-          "encoding": {
-            "opacity": {
-              "condition": {"param": "label", "empty": false, "value": 1},
-              "value": 0
+          "update": "datum && item().mark.marktype !== 'group' ? {unit: \"layer_0_layer_1\", fields: label_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"Year\"]]} : null",
+          "force": true
+        },
+        {"events": [{"source": "view", "type": "dblclick"}], "update": "null"}
+      ]
+    },
+    {
+      "name": "label_tuple_fields",
+      "value": [{"field": "Year", "channel": "x", "type": "E"}]
+    },
+    {
+      "name": "label_toggle",
+      "value": false,
+      "on": [
+        {
+          "events": [
+            {
+              "source": "scope",
+              "type": "mouseover",
+              "markname": "layer_0_layer_1_voronoi"
+            }
+          ],
+          "update": "event.shiftKey"
+        },
+        {"events": [{"source": "view", "type": "dblclick"}], "update": "false"}
+      ]
+    },
+    {
+      "name": "label_modify",
+      "on": [
+        {
+          "events": {"signal": "label_tuple"},
+          "update": "modify(\"label_store\", label_toggle ? null : label_tuple, label_toggle ? null : true, label_toggle ? label_tuple : null)"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_layer_0_pathgroup",
+      "type": "group",
+      "from": {
+        "facet": {
+          "name": "faceted_path_layer_0_layer_0_main",
+          "data": "source_0",
+          "groupby": ["Visa Category"]
+        }
+      },
+      "encode": {
+        "update": {
+          "width": {"field": {"group": "width"}},
+          "height": {"field": {"group": "height"}}
+        }
+      },
+      "marks": [
+        {
+          "name": "layer_0_layer_0_marks",
+          "type": "line",
+          "style": ["line"],
+          "sort": {"field": "datum[\"Year\"]"},
+          "interactive": false,
+          "from": {"data": "faceted_path_layer_0_layer_0_main"},
+          "encode": {
+            "update": {
+              "stroke": {"scale": "color", "field": "Visa Category"},
+              "description": {
+                "signal": "\"Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y')) + \"; Number of Visas graned: \" + (format(datum[\"Number\"], \"\")) + \"; Visa Category: \" + (isValid(datum[\"Visa Category\"]) ? datum[\"Visa Category\"] : \"\"+datum[\"Visa Category\"])"
+              },
+              "x": {"scale": "x", "field": "Year"},
+              "y": {"scale": "y", "field": "Number"},
+              "strokeWidth": {"value": 5},
+              "defined": {
+                "signal": "isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"]) && isValid(datum[\"Number\"]) && isFinite(+datum[\"Number\"])"
+              }
             }
           }
         }
       ]
     },
     {
-      "transform": [{"filter": {"param": "label", "empty": false}}],
-      "layer": [
-        {
-          "mark": {"type": "rule", "color": "gray"},
-          "encoding": {"x": {"type": "temporal", "field": "Year"}}
-        },
-        {
-          "encoding": {
-            "text": {"type": "quantitative", "field": "Number"},
-            "x": {"type": "temporal", "field": "Year"},
-            "y": {"type": "quantitative", "field": "Number"}
-          },
-          "layer": [
+      "name": "layer_0_layer_1_marks",
+      "type": "symbol",
+      "style": ["point"],
+      "interactive": true,
+      "from": {"data": "data_0"},
+      "encode": {
+        "update": {
+          "opacity": [
             {
-              "mark": {
-                "type": "text",
-                "stroke": "white",
-                "strokeWidth": 2,
-                "align": "left",
-                "dx": 5,
-                "dy": -5
-              }
+              "test": "length(data(\"label_store\")) && vlSelectionTest(\"label_store\", datum)",
+              "value": 1
             },
-            {
-              "mark": {"type": "text", "align": "left", "dx": 5, "dy": -5},
-              "encoding": {
-                "color": {"type": "nominal", "field": "Visa Category"}
-              }
-            }
-          ]
+            {"value": 0}
+          ],
+          "fill": {"scale": "color", "field": "Visa Category"},
+          "ariaRoleDescription": {"value": "point"},
+          "description": {
+            "signal": "\"Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y')) + \"; Number of Visas graned: \" + (format(datum[\"Number\"], \"\")) + \"; Visa Category: \" + (isValid(datum[\"Visa Category\"]) ? datum[\"Visa Category\"] : \"\"+datum[\"Visa Category\"])"
+          },
+          "x": {"scale": "x", "field": "Year"},
+          "y": {"scale": "y", "field": "Number"}
+        }
+      }
+    },
+    {
+      "name": "layer_0_layer_1_voronoi",
+      "type": "path",
+      "interactive": true,
+      "from": {"data": "layer_0_layer_1_marks"},
+      "encode": {
+        "update": {
+          "fill": {"value": "transparent"},
+          "strokeWidth": {"value": 0.35},
+          "stroke": {"value": "transparent"},
+          "isVoronoi": {"value": true}
+        }
+      },
+      "transform": [
+        {
+          "type": "voronoi",
+          "x": {"expr": "datum.datum.x || 0"},
+          "y": {"expr": "0"},
+          "size": [{"signal": "width"}, {"signal": "height"}]
         }
       ]
+    },
+    {
+      "name": "layer_1_layer_0_marks",
+      "type": "rule",
+      "style": ["rule"],
+      "interactive": false,
+      "from": {"data": "data_2"},
+      "encode": {
+        "update": {
+          "stroke": {"value": "gray"},
+          "description": {
+            "signal": "\"Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y'))"
+          },
+          "x": {"scale": "x", "field": "Year"},
+          "y": {"value": 0},
+          "y2": {"field": {"group": "height"}}
+        }
+      }
+    },
+    {
+      "name": "layer_1_layer_1_layer_0_marks",
+      "type": "text",
+      "style": ["text"],
+      "interactive": false,
+      "from": {"data": "data_3"},
+      "encode": {
+        "update": {
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 2},
+          "align": {"value": "left"},
+          "dx": {"value": 5},
+          "dy": {"value": -5},
+          "fill": {"value": "#1696d2"},
+          "description": {
+            "signal": "\"Number: \" + (format(datum[\"Number\"], \"\")) + \"; Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y'))"
+          },
+          "x": {"scale": "x", "field": "Year"},
+          "y": {"scale": "y", "field": "Number"},
+          "text": {"signal": "format(datum[\"Number\"], \"\")"},
+          "fontSize": {"value": 11},
+          "baseline": {"value": "middle"}
+        }
+      }
+    },
+    {
+      "name": "layer_1_layer_1_layer_1_marks",
+      "type": "text",
+      "style": ["text"],
+      "interactive": false,
+      "from": {"data": "data_3"},
+      "encode": {
+        "update": {
+          "align": {"value": "left"},
+          "dx": {"value": 5},
+          "dy": {"value": -5},
+          "fill": {"scale": "color", "field": "Visa Category"},
+          "description": {
+            "signal": "\"Number: \" + (format(datum[\"Number\"], \"\")) + \"; Year: \" + (timeFormat(datum[\"Year\"], '%b %d, %Y')) + \"; Visa Category: \" + (isValid(datum[\"Visa Category\"]) ? datum[\"Visa Category\"] : \"\"+datum[\"Visa Category\"])"
+          },
+          "x": {"scale": "x", "field": "Year"},
+          "y": {"scale": "y", "field": "Number"},
+          "text": {"signal": "format(datum[\"Number\"], \"\")"},
+          "fontSize": {"value": 11},
+          "baseline": {"value": "middle"}
+        }
+      }
     }
-  ]
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "time",
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "Year"},
+          {"data": "data_0", "field": "Year"},
+          {"data": "data_2", "field": "Year"},
+          {"data": "data_3", "field": "Year"}
+        ]
+      },
+      "range": [0, {"signal": "width"}]
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": [0, 150000],
+      "range": [{"signal": "height"}, 0],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": ["Family", "Humanitarian", "Skilled"],
+      "range": ["#1696d2", "#ec008b", "#fdbf11"]
+    }
+  ],
+  "axes": [
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "title": "Year",
+      "labelBaseline": "top",
+      "labelFlush": true,
+      "labelOverlap": true,
+      "tickCount": {"signal": "ceil(width/40)"},
+      "zindex": 0
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "title": "Number of Visas graned",
+      "labelOverlap": true,
+      "tickCount": {"signal": "ceil(height/40)"},
+      "zindex": 0
+    }
+  ],
+  "legends": [
+    {
+      "stroke": "color",
+      "symbolType": "circle",
+      "title": "Visa Category",
+      "encode": {"symbols": {"update": {"strokeWidth": {"value": 5}}}},
+      "fill": "color"
+    }
+  ],
+  "config": {
+    "range": {
+      "category": [
+        "#1696d2",
+        "#ec008b",
+        "#fdbf11",
+        "#000000",
+        "#d2d2d2",
+        "#55b748"
+      ],
+      "diverging": [
+        "#ca5800",
+        "#fdbf11",
+        "#fdd870",
+        "#fff2cf",
+        "#cfe8f3",
+        "#73bfe2",
+        "#1696d2",
+        "#0a4c6a"
+      ],
+      "heatmap": [
+        "#ca5800",
+        "#fdbf11",
+        "#fdd870",
+        "#fff2cf",
+        "#cfe8f3",
+        "#73bfe2",
+        "#1696d2",
+        "#0a4c6a"
+      ],
+      "ordinal": [
+        "#cfe8f3",
+        "#a2d4ec",
+        "#73bfe2",
+        "#46abdb",
+        "#1696d2",
+        "#12719e"
+      ],
+      "ramp": [
+        "#CFE8F3",
+        "#A2D4EC",
+        "#73BFE2",
+        "#46ABDB",
+        "#1696D2",
+        "#12719E",
+        "#0A4C6A",
+        "#062635"
+      ]
+    },
+    "path": {"stroke": "#1696d2", "strokeWidth": 0.5},
+    "shape": {"stroke": "#1696d2"},
+    "symbol": {"fill": "#1696d2", "size": 30},
+    "axisX": {
+      "domain": true,
+      "domainColor": "#000000",
+      "domainWidth": 1,
+      "grid": false,
+      "labelFontSize": 12,
+      "labelFont": "Lato",
+      "labelAngle": 0,
+      "tickColor": "#000000",
+      "tickSize": 5,
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFont": "Lato"
+    },
+    "axisY": {
+      "domain": false,
+      "domainWidth": 1,
+      "grid": true,
+      "gridColor": "#DEDDDD",
+      "gridWidth": 1,
+      "labelFontSize": 12,
+      "labelFont": "Lato",
+      "labelPadding": 8,
+      "ticks": false,
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFont": "Lato",
+      "titleAngle": 0,
+      "titleY": -10,
+      "titleX": 18
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "labelFont": "Lato",
+      "symbolSize": 100,
+      "titleFontSize": 12,
+      "titlePadding": 10,
+      "titleFont": "Lato",
+      "orient": "right",
+      "offset": 10
+    },
+    "style": {
+      "bar": {"fill": "#1696d2", "stroke": null},
+      "cell": {"stroke": "transparent"},
+      "arc": {"fill": "#1696d2"},
+      "area": {"fill": "#1696d2"},
+      "line": {"stroke": "#1696d2", "strokeWidth": 5},
+      "rect": {"fill": "#1696d2"},
+      "text": {
+        "font": "Lato",
+        "fontSize": 11,
+        "align": "center",
+        "fontWeight": 400,
+        "size": 11
+      },
+      "trail": {"stroke": "#1696d2", "strokeWidth": 0, "size": 1},
+      "group-title": {"fontSize": 18, "font": "Lato"}
+    }
+  }
 }
