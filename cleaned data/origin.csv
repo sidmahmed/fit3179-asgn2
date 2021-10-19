@@ -1,151 +1,166 @@
 Year,Country,Number of visas granted
-2010,Brazil,309.00
-2010,Canada,536.00
-2010,France,637.00
-2010,India,4537.00
-2010,Ireland,1565.00
-2010,Italy,391.00
-2010,Nepal,379.00
-2010,People's Republic of China,3480.00
-2010,Philippines,6097.00
-2010,Republic of Korea,1309.00
-2010,South Africa,4499.00
-2010,Sri Lanka,532.00
-2010,United Kingdom,9282.00
-2010,United States of America,770.00
-2010,Vietnam,628.00
-2011,Brazil,340.00
-2011,Canada,607.00
-2011,France,674.00
-2011,India,6419.00
-2011,Ireland,2397.00
-2011,Italy,359.00
-2011,Nepal,803.00
-2011,People's Republic of China,3235.00
-2011,Philippines,6583.00
-2011,Republic of Korea,1858.00
-2011,South Africa,3349.00
-2011,Sri Lanka,780.00
-2011,United Kingdom,9358.00
-2011,United States of America,908.00
-2011,Vietnam,392.00
-2012,Brazil,472.00
-2012,Canada,494.00
-2012,France,658.00
-2012,India,8645.00
-2012,Ireland,2752.00
-2012,Italy,428.00
-2012,Nepal,1113.00
-2012,People's Republic of China,3718.00
-2012,Philippines,4736.00
-2012,Republic of Korea,2073.00
-2012,South Africa,2377.00
-2012,Sri Lanka,794.00
-2012,United Kingdom,9196.00
-2012,United States of America,1009.00
-2012,Vietnam,898.00
-2013,Brazil,840.00
-2013,Canada,609.00
-2013,France,843.00
-2013,India,8104.00
-2013,Ireland,3469.00
-2013,Italy,464.00
-2013,Nepal,798.00
-2013,People's Republic of China,3476.00
-2013,Philippines,3464.00
-2013,Republic of Korea,1274.00
-2013,South Africa,2138.00
-2013,Sri Lanka,574.00
-2013,United Kingdom,11180.00
-2013,United States of America,1216.00
-2013,Vietnam,494.00
-2014,Brazil,614.00
-2014,Canada,658.00
-2014,France,791.00
-2014,India,8260.00
-2014,Ireland,3692.00
-2014,Italy,636.00
-2014,Nepal,1164.00
-2014,People's Republic of China,3365.00
-2014,Philippines,4640.00
-2014,Republic of Korea,1502.00
-2014,South Africa,1869.00
-2014,Sri Lanka,460.00
-2014,United Kingdom,10429.00
-2014,United States of America,1108.00
-2014,Vietnam,441.00
-2015,Brazil,609.00
-2015,Canada,555.00
-2015,France,744.00
-2015,India,10495.00
-2015,Ireland,2862.00
-2015,Italy,819.00
-2015,Nepal,1682.00
-2015,People's Republic of China,4024.00
-2015,Philippines,4181.00
-2015,Republic of Korea,1500.00
-2015,South Africa,1528.00
-2015,Sri Lanka,508.00
-2015,United Kingdom,8420.00
-2015,United States of America,928.00
-2015,Vietnam,462.00
-2016,Brazil,805.00
-2016,Canada,579.00
-2016,France,824.00
-2016,India,9873.00
-2016,Ireland,2436.00
-2016,Italy,1023.00
-2016,Nepal,1577.00
-2016,People's Republic of China,4197.00
-2016,Philippines,4558.00
-2016,Republic of Korea,1487.00
-2016,South Africa,1346.00
-2016,Sri Lanka,556.00
-2016,United Kingdom,7955.00
-2016,United States of America,982.00
-2016,Vietnam,637.00
-2017,Brazil,677.00
-2017,Canada,580.00
-2017,France,880.00
-2017,India,5148.00
-2017,Ireland,1511.00
-2017,Italy,1028.00
-2017,Nepal,748.00
-2017,People's Republic of China,2713.00
-2017,Philippines,3474.00
-2017,Republic of Korea,956.00
-2017,South Africa,1346.00
-2017,Sri Lanka,381.00
-2017,United Kingdom,6335.00
-2017,United States of America,1029.00
-2017,Vietnam,462.00
-2018,Brazil,1216.00
-2018,Canada,681.00
-2018,France,1094.00
-2018,India,7224.00
-2018,Ireland,1546.00
-2018,Italy,1248.00
-2018,Nepal,1296.00
-2018,People's Republic of China,2945.00
-2018,Philippines,3484.00
-2018,Republic of Korea,961.00
-2018,South Africa,1518.00
-2018,Sri Lanka,487.00
-2018,United Kingdom,7256.00
-2018,United States of America,1226.00
-2018,Vietnam,736.00
-2019,Brazil,888.00
-2019,Canada,417.00
-2019,France,610.00
-2019,India,4718.00
-2019,Ireland,996.00
-2019,Italy,915.00
-2019,Nepal,884.00
-2019,People's Republic of China,2524.00
-2019,Philippines,2583.00
-2019,Republic of Korea,741.00
-2019,South Africa,1145.00
-2019,Sri Lanka,429.00
-2019,United Kingdom,4275.00
-2019,United States of America,755.00
-2019,Vietnam,569.00
+2009,Brazil,0
+2009,Canada,0
+2009,France,0
+2009,India,0
+2009,Ireland,0
+2009,Italy,0
+2009,Nepal,0
+2009,People's Republic of China,0
+2009,Philippines,0
+2009,Republic of Korea,0
+2009,South Africa,0
+2009,Sri Lanka,0
+2009,United Kingdom,0
+2009,United States of America,0
+2009,Vietnam,0
+2010,Brazil,309
+2010,Canada,536
+2010,France,637
+2010,India,4537
+2010,Ireland,1565
+2010,Italy,391
+2010,Nepal,379
+2010,People's Republic of China,3480
+2010,Philippines,6097
+2010,Republic of Korea,1309
+2010,South Africa,4499
+2010,Sri Lanka,532
+2010,United Kingdom,9282
+2010,United States of America,770
+2010,Vietnam,628
+2011,Brazil,340
+2011,Canada,607
+2011,France,674
+2011,India,6419
+2011,Ireland,2397
+2011,Italy,359
+2011,Nepal,803
+2011,People's Republic of China,3235
+2011,Philippines,6583
+2011,Republic of Korea,1858
+2011,South Africa,3349
+2011,Sri Lanka,780
+2011,United Kingdom,9358
+2011,United States of America,908
+2011,Vietnam,392
+2012,Brazil,472
+2012,Canada,494
+2012,France,658
+2012,India,8645
+2012,Ireland,2752
+2012,Italy,428
+2012,Nepal,1113
+2012,People's Republic of China,3718
+2012,Philippines,4736
+2012,Republic of Korea,2073
+2012,South Africa,2377
+2012,Sri Lanka,794
+2012,United Kingdom,9196
+2012,United States of America,1009
+2012,Vietnam,898
+2013,Brazil,840
+2013,Canada,609
+2013,France,843
+2013,India,8104
+2013,Ireland,3469
+2013,Italy,464
+2013,Nepal,798
+2013,People's Republic of China,3476
+2013,Philippines,3464
+2013,Republic of Korea,1274
+2013,South Africa,2138
+2013,Sri Lanka,574
+2013,United Kingdom,11180
+2013,United States of America,1216
+2013,Vietnam,494
+2014,Brazil,614
+2014,Canada,658
+2014,France,791
+2014,India,8260
+2014,Ireland,3692
+2014,Italy,636
+2014,Nepal,1164
+2014,People's Republic of China,3365
+2014,Philippines,4640
+2014,Republic of Korea,1502
+2014,South Africa,1869
+2014,Sri Lanka,460
+2014,United Kingdom,10429
+2014,United States of America,1108
+2014,Vietnam,441
+2015,Brazil,609
+2015,Canada,555
+2015,France,744
+2015,India,10495
+2015,Ireland,2862
+2015,Italy,819
+2015,Nepal,1682
+2015,People's Republic of China,4024
+2015,Philippines,4181
+2015,Republic of Korea,1500
+2015,South Africa,1528
+2015,Sri Lanka,508
+2015,United Kingdom,8420
+2015,United States of America,928
+2015,Vietnam,462
+2016,Brazil,805
+2016,Canada,579
+2016,France,824
+2016,India,9873
+2016,Ireland,2436
+2016,Italy,1023
+2016,Nepal,1577
+2016,People's Republic of China,4197
+2016,Philippines,4558
+2016,Republic of Korea,1487
+2016,South Africa,1346
+2016,Sri Lanka,556
+2016,United Kingdom,7955
+2016,United States of America,982
+2016,Vietnam,637
+2017,Brazil,677
+2017,Canada,580
+2017,France,880
+2017,India,5148
+2017,Ireland,1511
+2017,Italy,1028
+2017,Nepal,748
+2017,People's Republic of China,2713
+2017,Philippines,3474
+2017,Republic of Korea,956
+2017,South Africa,1346
+2017,Sri Lanka,381
+2017,United Kingdom,6335
+2017,United States of America,1029
+2017,Vietnam,462
+2018,Brazil,1216
+2018,Canada,681
+2018,France,1094
+2018,India,7224
+2018,Ireland,1546
+2018,Italy,1248
+2018,Nepal,1296
+2018,People's Republic of China,2945
+2018,Philippines,3484
+2018,Republic of Korea,961
+2018,South Africa,1518
+2018,Sri Lanka,487
+2018,United Kingdom,7256
+2018,United States of America,1226
+2018,Vietnam,736
+2019,Brazil,888
+2019,Canada,417
+2019,France,610
+2019,India,4718
+2019,Ireland,996
+2019,Italy,915
+2019,Nepal,884
+2019,People's Republic of China,2524
+2019,Philippines,2583
+2019,Republic of Korea,741
+2019,South Africa,1145
+2019,Sri Lanka,429
+2019,United Kingdom,4275
+2019,United States of America,755
+2019,Vietnam,569
