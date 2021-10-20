@@ -4,7 +4,6 @@
   "padding": 5,
   "width": 600,
   "height": 400,
-  "title": {"anchor": "start", "text": "Australian Immigrant Population"},
   "data": [
     {
       "name": "source_1",
