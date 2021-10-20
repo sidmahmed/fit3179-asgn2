@@ -1,129 +1,119 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Top-K plot with \"others\" by Trevor Manz, adapted from https://observablehq.com/@manzt/top-k-plot-with-others-vega-lite-example.",
   "background": "#FFFFFF",
   "padding": 5,
   "width": 500,
-  "height": 320,
+  "height": 335,
   "style": "cell",
   "data": [
     {
       "name": "source_0",
       "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/origin.csv",
-      "format": {"type": "csv", "parse": {"Year": "date"}},
+      "format": {"type": "csv"},
       "transform": [
-        {
-          "type": "filter",
-          "expr": "datum.Country ==  'India' || datum.Country ==  'United Kingdom' || datum.Country ==  'Philippines'"
-        },
-        {
-          "field": "Year",
-          "type": "timeunit",
-          "units": ["year"],
-          "as": ["year_Year", "year_Year_end"]
-        },
+        {"type": "filter", "expr": "datum.Year == Select_Year"},
         {
           "type": "aggregate",
-          "groupby": ["year_Year", "Country", "Number of visas granted"],
+          "groupby": ["Country"],
           "ops": ["sum"],
           "fields": ["Number of visas granted"],
-          "as": ["sum_Number of visas granted"]
+          "as": ["Number"]
         },
         {
-          "type": "impute",
-          "field": "sum_Number of visas granted",
-          "groupby": ["Country"],
-          "key": "year_Year",
-          "method": "value",
-          "value": 0
+          "type": "window",
+          "params": [null],
+          "as": ["rank"],
+          "ops": ["row_number"],
+          "fields": [null],
+          "sort": {"field": ["Number"], "order": ["descending"]}
         },
+        {
+          "type": "formula",
+          "expr": "datum.rank < 6 ? datum.Country : 'All Others'",
+          "as": "ranked_country"
+        },
+        {"type": "filter", "expr": "datum.rank <= 5"}
+      ]
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
         {
           "type": "stack",
-          "groupby": ["year_Year"],
-          "field": "sum_Number of visas granted",
-          "sort": {"field": ["Country"], "order": ["descending"]},
-          "as": [
-            "sum_Number of visas granted_start",
-            "sum_Number of visas granted_end"
-          ],
+          "groupby": ["ranked_country"],
+          "field": "Number",
+          "sort": {"field": ["Country"], "order": ["ascending"]},
+          "as": ["Number_start", "Number_end"],
           "offset": "zero"
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"Number\"]) && isFinite(+datum[\"Number\"])"
         }
       ]
     }
   ],
+  "signals": [
+    {
+      "name": "Select_Year",
+      "value": 2019,
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2019,
+        "step": 1,
+        "name": "Select Year: "
+      }
+    }
+  ],
   "marks": [
     {
-      "name": "pathgroup",
-      "type": "group",
-      "from": {
-        "facet": {
-          "name": "faceted_path_main",
-          "data": "source_0",
-          "groupby": ["Country"]
-        }
-      },
+      "name": "marks",
+      "type": "rect",
+      "style": ["bar"],
+      "from": {"data": "data_0"},
       "encode": {
         "update": {
-          "width": {"field": {"group": "width"}},
-          "height": {"field": {"group": "height"}}
+          "fill": {"scale": "color", "field": "Country"},
+          "ariaRoleDescription": {"value": "bar"},
+          "description": {
+            "signal": "\"Number: \" + (format(datum[\"Number\"], \"\")) + \"; ranked_country: \" + (isValid(datum[\"ranked_country\"]) ? datum[\"ranked_country\"] : \"\"+datum[\"ranked_country\"]) + \"; Country: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"])"
+          },
+          "x": {"scale": "x", "field": "Number_end"},
+          "x2": {"scale": "x", "field": "Number_start"},
+          "y": {"scale": "y", "field": "ranked_country"},
+          "height": {"scale": "y", "band": 1}
         }
-      },
-      "marks": [
-        {
-          "name": "marks",
-          "type": "area",
-          "style": ["area"],
-          "sort": {"field": "datum[\"year_Year\"]"},
-          "from": {"data": "faceted_path_main"},
-          "encode": {
-            "update": {
-              "orient": {"value": "vertical"},
-              "fill": {"scale": "color", "field": "Country"},
-              "tooltip": {
-                "signal": "{\"Country\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Number of visas granted\": isValid(datum[\"Number of visas granted\"]) ? datum[\"Number of visas granted\"] : \"\"+datum[\"Number of visas granted\"]}"
-              },
-              "description": {
-                "signal": "\"Year (year): \" + (timeFormat(datum[\"year_Year\"], '%Y')) + \"; Number of Visas Granted: \" + (format(datum[\"sum_Number of visas granted\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Number of visas granted: \" + (isValid(datum[\"Number of visas granted\"]) ? datum[\"Number of visas granted\"] : \"\"+datum[\"Number of visas granted\"])"
-              },
-              "x": {"scale": "x", "field": "year_Year"},
-              "y": {"scale": "y", "field": "sum_Number of visas granted_end"},
-              "y2": {
-                "scale": "y",
-                "field": "sum_Number of visas granted_start"
-              },
-              "defined": {
-                "signal": "isValid(datum[\"year_Year\"]) && isFinite(+datum[\"year_Year\"]) && isValid(datum[\"sum_Number of visas granted\"]) && isFinite(+datum[\"sum_Number of visas granted\"])"
-              }
-            }
-          }
-        }
-      ]
+      }
     }
   ],
   "scales": [
     {
       "name": "x",
-      "type": "time",
-      "domain": {"data": "source_0", "field": "year_Year"},
-      "range": [0, {"signal": "width"}]
-    },
-    {
-      "name": "y",
       "type": "linear",
-      "domain": {
-        "data": "source_0",
-        "fields": [
-          "sum_Number of visas granted_start",
-          "sum_Number of visas granted_end"
-        ]
-      },
-      "range": [{"signal": "height"}, 0],
+      "domain": {"data": "data_0", "fields": ["Number_start", "Number_end"]},
+      "range": [0, {"signal": "width"}],
       "nice": true,
       "zero": true
     },
     {
+      "name": "y",
+      "type": "band",
+      "domain": {
+        "data": "source_0",
+        "field": "ranked_country",
+        "sort": {"op": "mean", "field": "Number", "order": "descending"}
+      },
+      "range": [0, {"signal": "height"}],
+      "paddingInner": 0.1,
+      "paddingOuter": 0.05
+    },
+    {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "source_0", "field": "Country", "sort": true},
+      "domain": {"data": "data_0", "field": "Country", "sort": true},
       "range": "category"
     }
   ],
@@ -133,7 +123,6 @@
       "orient": "left",
       "gridScale": "x",
       "grid": true,
-      "tickCount": {"signal": "ceil(height/40)"},
       "domain": false,
       "labels": false,
       "aria": false,
@@ -146,25 +135,22 @@
       "scale": "x",
       "orient": "bottom",
       "grid": false,
-      "title": "Year (year)",
-      "format": "%Y",
       "labelBaseline": "top",
       "labelFlush": true,
       "labelOverlap": true,
       "tickCount": {"signal": "ceil(width/40)"},
       "zindex": 0
     },
+    {"scale": "y", "orient": "left", "grid": false, "zindex": 0}
+  ],
+  "legends": [
     {
-      "scale": "y",
-      "orient": "left",
-      "grid": false,
-      "title": "Number of Visas Granted",
-      "labelOverlap": true,
-      "tickCount": {"signal": "ceil(height/40)"},
-      "zindex": 0
+      "fill": "color",
+      "symbolType": "square",
+      "title": "Country",
+      "encode": {"symbols": {"update": {"stroke": {"value": null}}}}
     }
   ],
-  "legends": [{"fill": "color", "symbolType": "circle", "title": "Country"}],
   "config": {
     "range": {
       "category": [
