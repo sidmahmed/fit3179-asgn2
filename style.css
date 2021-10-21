@@ -1,0 +1,24 @@
+.blue-text {
+    color: #1696d2;
+    font-weight: bold;
+    font-size: 18px;
+
+}
+.pink-text {
+    color: #ec008b;
+    font-weight: bold;
+    font-size: 18px;
+
+}
+
+.yellow-text {
+    color: #fdbf11;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.black-text {
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+}

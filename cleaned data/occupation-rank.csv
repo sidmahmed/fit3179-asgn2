@@ -1,101 +1,201 @@
-Occupation,Year,Rank
-Cooks,2010,2
-Cooks,2011,2
-Cooks,2012,1
-Cooks,2013,1
-Cooks,2014,1
-Cooks,2015,1
-Cooks,2016,1
-Cooks,2017,1
-Cooks,2018,1
-Cooks,2019,1
-Software and Applications Programmers,2010,3
-Software and Applications Programmers,2011,5
-Software and Applications Programmers,2012,6
-Software and Applications Programmers,2013,9
-Software and Applications Programmers,2014,9
-Software and Applications Programmers,2015,9
-Software and Applications Programmers,2016,9
-Software and Applications Programmers,2017,5
-Software and Applications Programmers,2018,5
-Software and Applications Programmers,2019,2
-Cafe and Restaurant Managers,2010,10
-Cafe and Restaurant Managers,2011,10
-Cafe and Restaurant Managers,2012,9
-Cafe and Restaurant Managers,2013,5
-Cafe and Restaurant Managers,2014,4
-Cafe and Restaurant Managers,2015,2
-Cafe and Restaurant Managers,2016,2
-Cafe and Restaurant Managers,2017,3
-Cafe and Restaurant Managers,2018,3
-Cafe and Restaurant Managers,2019,3
-University Lecturers and Tutors,2010,7
-University Lecturers and Tutors,2011,7
-University Lecturers and Tutors,2012,8
-University Lecturers and Tutors,2013,4
-University Lecturers and Tutors,2014,6
-University Lecturers and Tutors,2015,8
-University Lecturers and Tutors,2016,7
-University Lecturers and Tutors,2017,4
-University Lecturers and Tutors,2018,4
-University Lecturers and Tutors,2019,4
-Chefs,2010,5
-Chefs,2011,4
-Chefs,2012,4
-Chefs,2013,7
-Chefs,2014,7
-Chefs,2015,5
-Chefs,2016,5
-Chefs,2017,8
-Chefs,2018,6
-Chefs,2019,5
-Accountants,2010,8
-Accountants,2011,8
-Accountants,2012,7
-Accountants,2013,8
-Accountants,2014,8
-Accountants,2015,7
-Accountants,2016,6
-Accountants,2017,6
-Accountants,2018,7
-Accountants,2019,6
-Advertising and Marketing Professionals,2010,4
-Advertising and Marketing Professionals,2011,6
-Advertising and Marketing Professionals,2012,5
-Advertising and Marketing Professionals,2013,3
-Advertising and Marketing Professionals,2014,3
-Advertising and Marketing Professionals,2015,3
-Advertising and Marketing Professionals,2016,3
-Advertising and Marketing Professionals,2017,2
-Advertising and Marketing Professionals,2018,2
-Advertising and Marketing Professionals,2019,7
-Registered Nurses,2010,1
-Registered Nurses,2011,1
-Registered Nurses,2012,2
-Registered Nurses,2013,2
-Registered Nurses,2014,2
-Registered Nurses,2015,6
-Registered Nurses,2016,8
-Registered Nurses,2017,9
-Registered Nurses,2018,10
-Registered Nurses,2019,8
-ICT Business and Systems Analysts,2010,9
-ICT Business and Systems Analysts,2011,9
-ICT Business and Systems Analysts,2012,10
-ICT Business and Systems Analysts,2013,10
-ICT Business and Systems Analysts,2014,10
-ICT Business and Systems Analysts,2015,10
-ICT Business and Systems Analysts,2016,10
-ICT Business and Systems Analysts,2017,10
-ICT Business and Systems Analysts,2018,9
-ICT Business and Systems Analysts,2019,9
-Motor Mechanics,2010,6
-Motor Mechanics,2011,3
-Motor Mechanics,2012,3
-Motor Mechanics,2013,6
-Motor Mechanics,2014,5
-Motor Mechanics,2015,4
-Motor Mechanics,2016,4
-Motor Mechanics,2017,7
-Motor Mechanics,2018,8
-Motor Mechanics,2019,10
+Occupation,Type,Year,Rank
+Cooks,Employer sponsored,2010,2
+Cooks,Employer sponsored,2011,2
+Cooks,Employer sponsored,2012,1
+Cooks,Employer sponsored,2013,1
+Cooks,Employer sponsored,2014,1
+Cooks,Employer sponsored,2015,1
+Cooks,Employer sponsored,2016,1
+Cooks,Employer sponsored,2017,1
+Cooks,Employer sponsored,2018,1
+Cooks,Employer sponsored,2019,1
+Software and Applications Programmers,Employer sponsored,2010,3
+Software and Applications Programmers,Employer sponsored,2011,5
+Software and Applications Programmers,Employer sponsored,2012,6
+Software and Applications Programmers,Employer sponsored,2013,9
+Software and Applications Programmers,Employer sponsored,2014,9
+Software and Applications Programmers,Employer sponsored,2015,9
+Software and Applications Programmers,Employer sponsored,2016,9
+Software and Applications Programmers,Employer sponsored,2017,5
+Software and Applications Programmers,Employer sponsored,2018,5
+Software and Applications Programmers,Employer sponsored,2019,2
+Cafe and Restaurant Managers,Employer sponsored,2010,10
+Cafe and Restaurant Managers,Employer sponsored,2011,10
+Cafe and Restaurant Managers,Employer sponsored,2012,9
+Cafe and Restaurant Managers,Employer sponsored,2013,5
+Cafe and Restaurant Managers,Employer sponsored,2014,4
+Cafe and Restaurant Managers,Employer sponsored,2015,2
+Cafe and Restaurant Managers,Employer sponsored,2016,2
+Cafe and Restaurant Managers,Employer sponsored,2017,3
+Cafe and Restaurant Managers,Employer sponsored,2018,3
+Cafe and Restaurant Managers,Employer sponsored,2019,3
+University Lecturers and Tutors,Employer sponsored,2010,7
+University Lecturers and Tutors,Employer sponsored,2011,7
+University Lecturers and Tutors,Employer sponsored,2012,8
+University Lecturers and Tutors,Employer sponsored,2013,4
+University Lecturers and Tutors,Employer sponsored,2014,6
+University Lecturers and Tutors,Employer sponsored,2015,8
+University Lecturers and Tutors,Employer sponsored,2016,7
+University Lecturers and Tutors,Employer sponsored,2017,4
+University Lecturers and Tutors,Employer sponsored,2018,4
+University Lecturers and Tutors,Employer sponsored,2019,4
+Chefs,Employer sponsored,2010,5
+Chefs,Employer sponsored,2011,4
+Chefs,Employer sponsored,2012,4
+Chefs,Employer sponsored,2013,7
+Chefs,Employer sponsored,2014,7
+Chefs,Employer sponsored,2015,5
+Chefs,Employer sponsored,2016,5
+Chefs,Employer sponsored,2017,8
+Chefs,Employer sponsored,2018,6
+Chefs,Employer sponsored,2019,5
+Accountants,Employer sponsored,2010,8
+Accountants,Employer sponsored,2011,8
+Accountants,Employer sponsored,2012,7
+Accountants,Employer sponsored,2013,8
+Accountants,Employer sponsored,2014,8
+Accountants,Employer sponsored,2015,7
+Accountants,Employer sponsored,2016,6
+Accountants,Employer sponsored,2017,6
+Accountants,Employer sponsored,2018,7
+Accountants,Employer sponsored,2019,6
+Advertising and Marketing Professionals,Employer sponsored,2010,4
+Advertising and Marketing Professionals,Employer sponsored,2011,6
+Advertising and Marketing Professionals,Employer sponsored,2012,5
+Advertising and Marketing Professionals,Employer sponsored,2013,3
+Advertising and Marketing Professionals,Employer sponsored,2014,3
+Advertising and Marketing Professionals,Employer sponsored,2015,3
+Advertising and Marketing Professionals,Employer sponsored,2016,3
+Advertising and Marketing Professionals,Employer sponsored,2017,2
+Advertising and Marketing Professionals,Employer sponsored,2018,2
+Advertising and Marketing Professionals,Employer sponsored,2019,7
+Registered Nurses,Employer sponsored,2010,1
+Registered Nurses,Employer sponsored,2011,1
+Registered Nurses,Employer sponsored,2012,2
+Registered Nurses,Employer sponsored,2013,2
+Registered Nurses,Employer sponsored,2014,2
+Registered Nurses,Employer sponsored,2015,6
+Registered Nurses,Employer sponsored,2016,8
+Registered Nurses,Employer sponsored,2017,9
+Registered Nurses,Employer sponsored,2018,10
+Registered Nurses,Employer sponsored,2019,8
+ICT Business and Systems Analysts,Employer sponsored,2010,9
+ICT Business and Systems Analysts,Employer sponsored,2011,9
+ICT Business and Systems Analysts,Employer sponsored,2012,10
+ICT Business and Systems Analysts,Employer sponsored,2013,10
+ICT Business and Systems Analysts,Employer sponsored,2014,10
+ICT Business and Systems Analysts,Employer sponsored,2015,10
+ICT Business and Systems Analysts,Employer sponsored,2016,10
+ICT Business and Systems Analysts,Employer sponsored,2017,10
+ICT Business and Systems Analysts,Employer sponsored,2018,9
+ICT Business and Systems Analysts,Employer sponsored,2019,9
+Motor Mechanics,Employer sponsored,2010,6
+Motor Mechanics,Employer sponsored,2011,3
+Motor Mechanics,Employer sponsored,2012,3
+Motor Mechanics,Employer sponsored,2013,6
+Motor Mechanics,Employer sponsored,2014,5
+Motor Mechanics,Employer sponsored,2015,4
+Motor Mechanics,Employer sponsored,2016,4
+Motor Mechanics,Employer sponsored,2017,7
+Motor Mechanics,Employer sponsored,2018,8
+Motor Mechanics,Employer sponsored,2019,10
+Accountants,Independent,2010,1
+Civil Engineering Professionals,Independent,2010,5
+Computer Network Professionals,Independent,2010,10
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2010,9
+ICT Business and Systems Analysts2,Independent,2010,6
+"Industrial, Mechanical and Production Engineers",Independent,2010,4
+Other Engineering Professionals,Independent,2010,7
+Other Medical Practitioners,Independent,2010,8
+Registered Nurses,Independent,2010,3
+Software and Applications Programmers,Independent,2010,2
+Accountants,Independent,2011,1
+Civil Engineering Professionals,Independent,2011,6
+Computer Network Professionals,Independent,2011,10
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2011,9
+ICT Business and Systems Analysts2,Independent,2011,3
+"Industrial, Mechanical and Production Engineers",Independent,2011,4
+Other Engineering Professionals,Independent,2011,7
+Other Medical Practitioners,Independent,2011,8
+Registered Nurses,Independent,2011,5
+Software and Applications Programmers,Independent,2011,2
+Accountants,Independent,2012,1
+Civil Engineering Professionals,Independent,2012,6
+Computer Network Professionals,Independent,2012,9
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2012,10
+ICT Business and Systems Analysts2,Independent,2012,3
+"Industrial, Mechanical and Production Engineers",Independent,2012,5
+Other Engineering Professionals,Independent,2012,7
+Other Medical Practitioners,Independent,2012,8
+Registered Nurses,Independent,2012,4
+Software and Applications Programmers,Independent,2012,2
+Accountants,Independent,2013,1
+Civil Engineering Professionals,Independent,2013,6
+Computer Network Professionals,Independent,2013,7
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2013,10
+ICT Business and Systems Analysts2,Independent,2013,4
+"Industrial, Mechanical and Production Engineers",Independent,2013,5
+Other Engineering Professionals,Independent,2013,8
+Other Medical Practitioners,Independent,2013,9
+Registered Nurses,Independent,2013,3
+Software and Applications Programmers,Independent,2013,2
+Accountants,Independent,2014,1
+Civil Engineering Professionals,Independent,2014,7
+Computer Network Professionals,Independent,2014,6
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2014,10
+ICT Business and Systems Analysts2,Independent,2014,4
+"Industrial, Mechanical and Production Engineers",Independent,2014,5
+Other Engineering Professionals,Independent,2014,8
+Other Medical Practitioners,Independent,2014,9
+Registered Nurses,Independent,2014,3
+Software and Applications Programmers,Independent,2014,2
+Accountants,Independent,2015,3
+Civil Engineering Professionals,Independent,2015,6
+Computer Network Professionals,Independent,2015,5
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2015,10
+ICT Business and Systems Analysts2,Independent,2015,7
+"Industrial, Mechanical and Production Engineers",Independent,2015,4
+Other Engineering Professionals,Independent,2015,8
+Other Medical Practitioners,Independent,2015,9
+Registered Nurses,Independent,2015,2
+Software and Applications Programmers,Independent,2015,1
+Accountants,Independent,2016,3
+Civil Engineering Professionals,Independent,2016,6
+Computer Network Professionals,Independent,2016,5
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2016,10
+ICT Business and Systems Analysts2,Independent,2016,7
+"Industrial, Mechanical and Production Engineers",Independent,2016,4
+Other Engineering Professionals,Independent,2016,8
+Other Medical Practitioners,Independent,2016,9
+Registered Nurses,Independent,2016,2
+Software and Applications Programmers,Independent,2016,1
+Accountants,Independent,2017,2
+Civil Engineering Professionals,Independent,2017,4
+Computer Network Professionals,Independent,2017,7
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2017,10
+ICT Business and Systems Analysts2,Independent,2017,5
+"Industrial, Mechanical and Production Engineers",Independent,2017,6
+Other Engineering Professionals,Independent,2017,8
+Other Medical Practitioners,Independent,2017,9
+Registered Nurses,Independent,2017,3
+Software and Applications Programmers,Independent,2017,1
+Accountants,Independent,2018,2
+Civil Engineering Professionals,Independent,2018,5
+Computer Network Professionals,Independent,2018,7
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2018,8
+ICT Business and Systems Analysts2,Independent,2018,6
+"Industrial, Mechanical and Production Engineers",Independent,2018,4
+Other Engineering Professionals,Independent,2018,10
+Other Medical Practitioners,Independent,2018,9
+Registered Nurses,Independent,2018,3
+Software and Applications Programmers,Independent,2018,1
+Accountants,Independent,2019,2
+Civil Engineering Professionals,Independent,2019,7
+Computer Network Professionals,Independent,2019,6
+"Database and Systems Administrators, and ICT Security Specialists",Independent,2019,8
+ICT Business and Systems Analysts2,Independent,2019,5
+"Industrial, Mechanical and Production Engineers",Independent,2019,4
+Other Engineering Professionals,Independent,2019,10
+Other Medical Practitioners,Independent,2019,9
+Registered Nurses,Independent,2019,3
+Software and Applications Programmers,Independent,2019,1
