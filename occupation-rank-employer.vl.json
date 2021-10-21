@@ -20,7 +20,10 @@
     {
       "name": "source_0",
       "url": "https://raw.githubusercontent.com/ahmedbonyeamin/fit3179-asgn2/master/cleaned%20data/occupation-rank.csv",
-      "format": {"type": "csv"}
+      "format": {"type": "csv", "delimiter": ","},
+      "transform": [
+        {"type": "filter", "expr": "datum.Type == Application_selection"}
+      ]
     },
     {
       "name": "data_1",
@@ -61,6 +64,15 @@
     {
       "name": "hover",
       "update": "vlSelectionResolve(\"hover_store\", \"union\", true, true)"
+    },
+    {
+      "name": "Application_selection",
+      "value": "Employer sponsored",
+      "bind": {
+        "input": "select",
+        "options": ["Employer sponsored", "Independent"],
+        "name": "Select application type: "
+      }
     },
     {
       "name": "hover_tuple",
@@ -129,7 +141,7 @@
               "strokeWidth": {"value": 8},
               "opacity": [
                 {
-                  "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+                  "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers' || datum.Occupation ==  'Accountants' || datum.Occupation ==  'Registered Nurses'",
                   "value": 1
                 },
                 {"value": 0.2}
@@ -157,14 +169,14 @@
         "update": {
           "opacity": [
             {
-              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers' || datum.Occupation ==  'Accountants' || datum.Occupation ==  'Registered Nurses'",
               "value": 1
             },
             {"value": 0.2}
           ],
           "fill": [
             {
-              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers' || datum.Occupation ==  'Accountants' || datum.Occupation ==  'Registered Nurses'",
               "scale": "color",
               "field": "Occupation"
             },
@@ -213,7 +225,7 @@
             "update": {
               "stroke": [
                 {
-                  "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+                  "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers' || datum.Occupation ==  'Accountants' || datum.Occupation ==  'Registered Nurses'",
                   "scale": "color",
                   "field": "Occupation"
                 },
@@ -221,7 +233,7 @@
               ],
               "opacity": [
                 {
-                  "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+                  "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers' || datum.Occupation ==  'Accountants' || datum.Occupation ==  'Registered Nurses'",
                   "value": 1
                 },
                 {"value": 0.2}
@@ -250,7 +262,7 @@
         "update": {
           "fill": [
             {
-              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers' || datum.Occupation ==  'Accountants' || datum.Occupation ==  'Registered Nurses'",
               "scale": "color",
               "field": "Occupation"
             },
@@ -258,7 +270,7 @@
           ],
           "opacity": [
             {
-              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers' || datum.Occupation ==  'Accountants' || datum.Occupation ==  'Registered Nurses'",
               "value": 1
             },
             {"value": 0.2}
@@ -291,7 +303,7 @@
           "dx": {"value": 4},
           "fill": [
             {
-              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers' || datum.Occupation ==  'Accountants' || datum.Occupation ==  'Registered Nurses'",
               "scale": "color",
               "field": "Occupation"
             },
@@ -299,7 +311,7 @@
           ],
           "opacity": [
             {
-              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers'",
+              "test": "datum.Occupation ==  'Cooks' || datum.Occupation ==  'Software and Applications Programmers' || datum.Occupation ==  'Cafe and Restaurant Managers' || datum.Occupation ==  'Accountants' || datum.Occupation ==  'Registered Nurses'",
               "value": 1
             },
             {"value": 0.2}
@@ -353,9 +365,11 @@
       "domain": [
         "Cooks",
         "Software and Applications Programmers",
-        "Cafe and Restaurant Managers"
+        "Cafe and Restaurant Managers",
+        "Accountants",
+        "Registered Nurses"
       ],
-      "range": ["#1696d2", "#ec008b", "#fdbf11"]
+      "range": ["#1696d2", "#ec008b", "#fdbf11", "#000000", "#55b748"]
     }
   ],
   "axes": [

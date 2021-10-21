@@ -3,7 +3,7 @@
   "background": "#FFFFFF",
   "padding": 5,
   "width": 600,
-  "height" :430,
+  "height" :425,
   "data": [
     {"name": "brush_store"},
     {
